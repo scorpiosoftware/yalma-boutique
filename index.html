@@ -127,6 +127,191 @@ footer{background:var(--plum);color:rgba(255,255,255,.75);padding:2.2rem 0;font-
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 footer .brand img{width:36px;height:36px}
 
+
+/* ===== multi-page additions ===== */
+.nav.solid{background:rgba(175,107,154,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.links a.active:not(.btn)::after{transform:scaleX(1)}
+.tile{text-decoration:none}
+.view[hidden]{display:none}
+.page-head{background:radial-gradient(120% 140% at 20% 0%, #B97AA6 0%, var(--orchid) 50%, var(--orchid-deep) 100%);color:#fff;padding:calc(72px + env(safe-area-inset-top,0px) + clamp(2.5rem,6vw,4.5rem)) 0 clamp(2.5rem,5vw,3.5rem);position:relative;overflow:hidden}
+.page-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;margin:0 0 .8rem}
+.page-head p{margin:0;max-width:52ch;opacity:.9}
+.page-head .ghost{position:absolute;right:-40px;bottom:-60px;width:clamp(220px,32vw,380px);opacity:.14;pointer-events:none}
+.page-head .ghost path{fill:none;stroke:#fff;stroke-width:1.6}
+.crumbs{font-size:.92rem;margin-bottom:1.4rem;opacity:.85;display:flex;gap:.5rem;flex-wrap:wrap}
+.crumbs a{text-decoration:none;border-bottom:1px solid transparent}
+.crumbs a:hover{border-color:currentColor}
+.crumbs .sep{opacity:.6}
+
+.toolbar{display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:2rem 0 1.5rem;border-bottom:1px solid var(--line);margin-bottom:2.2rem}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{padding:.5rem 1.1rem;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-size:.95rem;font-weight:400;color:var(--text);transition:background .25s,color .25s,border-color .25s}
+.chip:hover{border-color:var(--orchid)}
+.chip.on{background:var(--orchid);border-color:var(--orchid);color:#fff}
+.tools{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.field{font:inherit;font-size:.95rem;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;min-height:42px}
+.field:focus{outline:none;border-color:var(--orchid)}
+input.field{width:min(220px,100%)}
+.count{color:var(--muted);font-size:.95rem;margin:0 0 1.2rem}
+
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2.2rem 1.4rem}
+.pcard{text-decoration:none;color:inherit;display:block}
+.pimg{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--surface)}
+.pimg svg *,.main-img svg *,.thumb svg *{vector-effect:non-scaling-stroke}
+.pimg svg{width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.pcard:hover .pimg svg{transform:scale(1.05)}
+.badge{position:absolute;top:12px;left:12px;background:var(--ice);color:var(--plum);font-size:.8rem;font-weight:500;padding:.25rem .7rem;border-radius:999px}
+.pmeta{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;margin-top:.9rem}
+.pmeta h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;margin:0;line-height:1.25}
+.pmeta .price{font-weight:400;white-space:nowrap}
+.pcat{color:var(--muted);font-size:.9rem;margin:.15rem 0 .5rem}
+.dots{display:flex;gap:6px}
+.dots i{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(62,31,54,.18)}
+.empty{text-align:center;padding:4rem 1rem;color:var(--muted)}
+.empty h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--text);margin:0 0 .5rem}
+.link-btn{background:none;border:0;color:var(--orchid);font:inherit;text-decoration:underline;cursor:pointer;padding:0}
+
+
+/* product detail */
+.pd-wrap{padding:calc(72px + env(safe-area-inset-top,0px) + 2rem) 0 clamp(3rem,7vw,5rem)}
+.pd-wrap .crumbs{color:var(--muted);opacity:1}
+.pd{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.gallery{position:sticky;top:calc(72px + env(safe-area-inset-top,0px) + 1.5rem)}
+.main-img{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:var(--surface);cursor:zoom-in;position:relative}
+.main-img svg{width:100%;height:100%;transition:transform .35s ease;transform-origin:center}
+.main-img.zoom svg{transform:scale(1.7)}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.8rem}
+.thumb{aspect-ratio:1;border-radius:14px;overflow:hidden;border:2px solid transparent;padding:0;background:var(--surface);cursor:pointer;transition:border-color .25s}
+.thumb svg{width:100%;height:100%}
+.thumb.on{border-color:var(--orchid)}
+.pd-info h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.5vw,3.2rem);line-height:1.05;margin:0 0 .6rem}
+.pd-price{font-size:1.45rem;font-weight:400;margin:0 0 1.4rem;color:var(--orchid)}
+.pd-desc{margin:0 0 2rem;max-width:48ch}
+.opt{margin-bottom:1.6rem}
+.opt-label{display:flex;justify-content:space-between;font-weight:400;margin-bottom:.7rem}
+.opt-label span{color:var(--muted)}
+.swatches{display:flex;gap:.7rem;flex-wrap:wrap}
+.swatch{width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(62,31,54,.2);position:relative;transition:transform .25s}
+.swatch:hover{transform:scale(1.08)}
+.swatch.on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--orchid)}
+.sizes{display:flex;gap:.55rem;flex-wrap:wrap}
+.size{min-width:52px;height:46px;padding:0 .9rem;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-weight:400;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.size:hover{border-color:var(--orchid)}
+.size.on{background:var(--plum);border-color:var(--plum);color:#fff}
+:root[data-theme="dark"] .size.on{background:var(--ice);color:var(--plum)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .size.on{background:var(--ice);border-color:var(--ice);color:var(--plum)}}
+.hint{color:#B5426E;font-size:.92rem;margin:.6rem 0 0;min-height:1.2em}
+.buy{display:flex;gap:.8rem;align-items:stretch;margin:2rem 0 1rem}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.qty button{width:44px;height:100%;min-height:50px;border:0;background:none;color:var(--text);font-size:1.25rem;cursor:pointer}
+.qty output{min-width:1.6rem;text-align:center}
+.order-btn{flex:1;justify-content:center;background:var(--orchid);color:#fff;font-size:1rem;min-height:50px}
+.order-btn:hover{background:var(--orchid-deep);transform:translateY(-2px)}
+.note{color:var(--muted);font-size:.92rem;margin:0 0 2rem}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:1.1rem 0;font-family:var(--serif);font-size:1.15rem;display:flex;justify-content:space-between;align-items:center}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:1.5rem;transition:transform .3s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .body{padding:0 0 1.2rem;color:var(--muted)}
+.acc ul{margin:0;padding-left:1.1rem}
+.related{padding-top:0}
+.related h2{font-size:clamp(1.8rem,4vw,2.5rem)}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--plum);color:#fff;padding:.9rem 1.3rem;border-radius:14px;box-shadow:0 12px 40px rgba(62,31,54,.3);z-index:80;max-width:min(92vw,460px);font-size:.95rem;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.foot-links a{text-decoration:none;opacity:.85}
+.foot-links a:hover{opacity:1}
+
+@media (max-width:860px){
+  .pd{grid-template-columns:1fr}
+  .gallery{position:static}
+}
+@media (max-width:520px){
+  .pgrid{grid-template-columns:1fr 1fr;gap:1.6rem .8rem}
+  .pmeta{flex-direction:column;gap:.1rem}
+  .pmeta h3{font-size:1.05rem}
+  input.field{width:100%}
+  .tools{width:100%}
+  .tools select{flex:1}
+}
+
+
+/* ===== cart + wishlist ===== */
+.nav .wrap{gap:1rem}
+.links{margin-left:auto}
+.nav-icons{display:flex;gap:.25rem;align-items:center;margin-left:1.2rem}
+.icon-btn{position:relative;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:none;border:0;color:#fff;cursor:pointer;text-decoration:none;transition:background .25s}
+.icon-btn:hover{background:rgba(255,255,255,.14)}
+.icon-btn svg{width:22px;height:22px}
+.count-badge{position:absolute;top:3px;right:1px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:var(--ice);color:var(--plum);font-size:.72rem;font-weight:500;display:grid;place-items:center;line-height:1}
+.count-badge[hidden]{display:none}
+.heart{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:var(--orchid);display:grid;place-items:center;cursor:pointer;z-index:2;transition:transform .25s,background .25s}
+.heart:hover{transform:scale(1.08);background:#fff}
+.heart svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;transition:fill .25s}
+.heart.on svg{fill:currentColor}
+.pcard{position:relative}
+.plink{text-decoration:none;color:inherit;display:block}
+.card-add{margin-top:.8rem;width:100%;justify-content:center;background:none;border:1px solid var(--orchid);color:var(--orchid);cursor:pointer}
+.card-add:hover{background:var(--orchid);color:#fff}
+.pd-heart{position:static;width:50px;height:50px;flex:none;border:1px solid var(--line);background:var(--surface)}
+.burst{position:fixed;width:6px;height:6px;border-radius:50%;pointer-events:none;z-index:90}
+
+.scrim{position:fixed;inset:0;background:rgba(62,31,54,.45);z-index:70;opacity:0;pointer-events:none;transition:opacity .35s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);color:var(--text);z-index:75;display:flex;flex-direction:column;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.8,.2,1);box-shadow:-20px 0 60px rgba(62,31,54,.18);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.cart-open .scrim{opacity:1;pointer-events:auto}
+.cart-open .drawer{transform:none}
+.cart-open{overflow:hidden}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.4rem;border-bottom:1px solid var(--line)}
+.drawer-head h2{font-size:1.7rem;margin:0}
+.close-btn{width:42px;height:42px;border-radius:50%;border:0;background:none;color:var(--text);font-size:1.6rem;cursor:pointer;line-height:1}
+.close-btn:hover{background:var(--line)}
+.drawer-body{flex:1;overflow-y:auto;padding:0 1.4rem}
+.line{display:grid;grid-template-columns:76px 1fr auto;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);align-items:start}
+.line .thumbnail{width:76px;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--surface);display:block}
+.line .thumbnail svg{width:100%;height:100%}
+.line h3{font-family:var(--serif);font-weight:400;font-size:1.08rem;margin:0 0 .15rem;line-height:1.25}
+.line h3 a{text-decoration:none}
+.line .meta{color:var(--muted);font-size:.9rem;margin:0 0 .6rem}
+.line .qty{display:inline-flex}
+.line .qty button{min-height:34px;width:34px;font-size:1.05rem}
+.line .lprice{text-align:right;white-space:nowrap}
+.remove{background:none;border:0;color:var(--muted);font:inherit;font-size:.85rem;text-decoration:underline;cursor:pointer;padding:0;margin-top:.5rem;display:block;margin-left:auto}
+.drawer-empty{text-align:center;padding:4rem 1rem;color:var(--muted)}
+.drawer-empty h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--text);margin:0 0 .5rem}
+.drawer-empty svg{width:64px;margin:0 auto 1.2rem;stroke:var(--orchid);fill:none;stroke-width:1.4}
+.drawer-foot{border-top:1px solid var(--line);padding:1.2rem 1.4rem;background:var(--surface)}
+.totals{display:flex;justify-content:space-between;font-size:1.1rem;margin-bottom:.2rem}
+.totals strong{font-weight:500}
+.small{color:var(--muted);font-size:.88rem;margin:0 0 1rem}
+.checkout{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.9rem}
+.checkout label{display:flex;flex-direction:column;font-size:.85rem;gap:.25rem;color:var(--muted)}
+.checkout label.wide{grid-column:1/-1}
+.checkout input,.checkout textarea{font:inherit;font-size:.95rem;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.55rem .75rem}
+.checkout textarea{resize:vertical;min-height:2.6rem}
+.checkout label{min-width:0}
+.checkout input,.checkout textarea{width:100%;min-width:0}
+.drawer-foot{max-height:62vh;overflow-y:auto}
+.order-text{width:100%;font:inherit;font-size:.88rem;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.8rem;min-height:9rem;resize:vertical;margin:0 0 1rem;text-align:left}
+.checkout input:focus,.checkout textarea:focus{outline:none;border-color:var(--orchid)}
+.checkout .bad{border-color:#B5426E}
+.send-btn{width:100%;justify-content:center;background:var(--orchid);color:#fff;min-height:50px;border:0;cursor:pointer}
+.send-btn:hover{background:var(--orchid-deep)}
+.done{text-align:center;padding:3rem 1rem}
+.done svg{width:70px;margin:0 auto 1rem}
+.done svg path{fill:none;stroke:var(--orchid);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.done h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;margin:0 0 .6rem}
+.done p{color:var(--muted);margin:0 0 1.5rem}
+.toast button{background:none;border:0;color:var(--ice);font:inherit;font-weight:500;text-decoration:underline;margin-left:.7rem;cursor:pointer;padding:0}
+.pop{animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{40%{transform:scale(1.35)}}
+@media (max-width:1000px){.links{gap:1.3rem}}
+@media (max-width:720px){.nav-icons{margin-left:auto}.links{margin-left:0}.menu-btn{order:3}}
+
 /* reveal: used only on section headings */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -162,21 +347,27 @@ footer .brand img{width:36px;height:36px}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Yalma Boutique home">
+    <a class="brand" href="#/" aria-label="Yalma Boutique home">
       <img src="data:image/jpeg;base64,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" alt="Yalma Boutique logo">
       <span>Yalma</span>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="links" id="links">
-      <a href="#about">Our story</a>
-      <a href="#collections">Collections</a>
-      <a href="#order">How to order</a>
-      <a class="btn btn-ice" href="#contact">Contact us</a>
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/catalog" data-nav="catalog">Shop</a>
+      <a href="#/about" data-nav="about">Our story</a>
+      <a href="#/order" data-nav="order">How to order</a>
+      <a class="btn btn-ice" href="#/contact">Contact us</a>
     </nav>
+    <div class="nav-icons">
+      <a class="icon-btn" href="#/wishlist" aria-label="Wishlist" id="wishBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20z"/></svg><span class="count-badge" id="wishCount" hidden>0</span></a>
+      <button class="icon-btn" id="cartBtn" aria-label="Open bag" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg><span class="count-badge" id="cartCount" hidden>0</span></button>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main id="top">
+<div class="view" id="view-home">
   <section class="hero" aria-label="Yalma Boutique">
     <canvas id="petals" aria-hidden="true"></canvas>
     <div class="hero-inner wrap">
@@ -196,7 +387,7 @@ footer .brand img{width:36px;height:36px}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
           See new arrivals
         </a>
-        <a class="btn btn-line" href="#collections">Explore collections</a>
+        <a class="btn btn-line" href="#/catalog">Browse the catalog</a>
       </div>
     </div>
     <div class="scroll-cue" aria-hidden="true"></div>
@@ -226,26 +417,40 @@ footer .brand img{width:36px;height:36px}
           <h2 class="reveal">What you'll find at Yalma</h2>
           <p class="lead">New drops land on our Instagram first. Here's what we usually carry.</p>
         </div>
-        <a class="btn btn-ice" href="https://www.instagram.com/yalmaboutique.lb/" target="_blank" rel="noopener">Shop on Instagram</a>
+        <a class="btn btn-ice" href="#/catalog">View full catalog</a>
       </div>
       <div class="grid">
-        <article class="tile">
+        <a class="tile" href="#/catalog/dresses">
           <svg viewBox="0 0 100 130"><path d="M38 8 L44 22 L56 22 L62 8"/><path d="M44 22 C40 40 34 52 22 122 L78 122 C66 52 60 40 56 22"/><path d="M36 58 Q50 64 64 58"/></svg>
           <h3>Dresses</h3><p>Flowing maxis and easy midis for days out and evenings in.</p>
-        </article>
-        <article class="tile">
+        </a>
+        <a class="tile" href="#/catalog/sets">
           <svg viewBox="0 0 100 130"><path d="M30 14 L42 10 Q50 18 58 10 L70 14 L80 36 L70 40 L68 30 L68 62 L32 62 L32 30 L30 40 L20 36 Z"/><path d="M32 68 L68 68 L72 122 L54 122 L50 84 L46 122 L28 122 Z"/></svg>
           <h3>Sets & co-ords</h3><p>Matching pieces you can wear together or style apart.</p>
-        </article>
-        <article class="tile">
+        </a>
+        <a class="tile" href="#/catalog/bags">
           <svg viewBox="0 0 100 130"><path d="M24 50 L76 50 L72 112 L28 112 Z"/><path d="M38 50 C38 26 62 26 62 50"/><path d="M24 66 L76 66"/></svg>
           <h3>Bags</h3><p>Everyday totes and little bags that finish an outfit.</p>
-        </article>
-        <article class="tile">
+        </a>
+        <a class="tile" href="#/catalog/accessories">
           <svg viewBox="0 0 100 130"><circle cx="34" cy="22" r="4"/><path d="M34 26 L34 44"/><path d="M34 44 C22 60 24 80 34 88 C44 80 46 60 34 44 Z"/><circle cx="66" cy="22" r="4"/><path d="M66 26 L66 44"/><path d="M66 44 C54 60 56 80 66 88 C76 80 78 60 66 44 Z"/></svg>
           <h3>Accessories</h3><p>Jewellery, scarves and small touches with a soft shine.</p>
-        </article>
+        </a>
       </div>
+    </div>
+  </section>
+
+
+  <section class="arrivals">
+    <div class="wrap">
+      <div class="col-head">
+        <div>
+          <h2 class="reveal">New this week</h2>
+          <p class="lead">The latest pieces to land at Yalma. Tap any piece for sizes and colours.</p>
+        </div>
+        <a class="btn btn-ice" href="#/catalog">Shop everything</a>
+      </div>
+      <div class="pgrid" id="homeNew"></div>
     </div>
   </section>
 
@@ -288,11 +493,23 @@ footer .brand img{width:36px;height:36px}
       </div>
     </div>
   </section>
+</div>
+<div class="view" id="view-catalog" hidden></div>
+<div class="view" id="view-product" hidden></div>
+<div class="view" id="view-wishlist" hidden></div>
 </main>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head"><h2 id="drawerTitle">Your bag</h2><button class="close-btn" id="closeCart" aria-label="Close bag">×</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#top"><img src="data:image/jpeg;base64,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" alt="Yalma Boutique logo"><span>Yalma Boutique</span></a>
+    <a class="brand" href="#/"><img src="data:image/jpeg;base64,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" alt="Yalma Boutique logo"><span>Yalma Boutique</span></a>
+    <nav class="foot-links" aria-label="Footer"><a href="#/catalog">Shop</a><a href="#/about">Our story</a><a href="#/order">How to order</a><a href="https://www.instagram.com/yalmaboutique.lb/" target="_blank" rel="noopener">Instagram</a></nav>
     <span>© <span id="yr"></span> Yalma Boutique. All rights reserved.</span>
   </div>
 </footer>
@@ -300,108 +517,598 @@ footer .brand img{width:36px;height:36px}
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var EASE = 'cubic-bezier(.2,.8,.2,1)';
+  var IG_DM = 'https://ig.me/m/yalmaboutique.lb';
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* nav background on scroll */
-  var nav = document.getElementById('nav');
+  /* =========================================================
+     PRODUCTS — edit this list to match your real stock.
+     kind controls the illustration until real photos are added.
+     ========================================================= */
+  var CATS = { dresses:'Dresses', sets:'Sets & co-ords', bags:'Bags', accessories:'Accessories' };
+  var CLOTHES = ['XS','S','M','L','XL'];
+  var PRODUCTS = [
+    {id:'lina-linen-maxi', name:'Lina linen maxi dress', cat:'dresses', kind:'maxi', price:48, isNew:true,
+      colors:[['Ice blue','#A8D4E6'],['Blush','#E8B9D0'],['Ivory','#F1EBE1']], sizes:CLOTHES,
+      desc:'A breezy linen maxi with thin straps and a softly gathered skirt. Light enough for summer evenings, easy to dress up with sandals and gold jewellery.',
+      details:['Linen blend','Adjustable straps','Side pockets','Hand wash cold, hang to dry']},
+    {id:'rima-wrap-midi', name:'Rima wrap midi dress', cat:'dresses', kind:'wrap', price:42, isNew:true,
+      colors:[['Orchid','#AF6B9A'],['Sage','#A9B89A'],['Black','#2E2529']], sizes:CLOTHES,
+      desc:'A true wrap dress that ties at the waist and falls just below the knee. Flattering on every shape and right for work, dinners and family lunches.',
+      details:['Soft crepe','Tie waist','Fluttered short sleeves','Machine wash gentle']},
+    {id:'nour-satin-slip', name:'Nour satin slip dress', cat:'dresses', kind:'slip', price:55,
+      colors:[['Champagne','#E6D3B3'],['Plum','#6E3A60'],['Sky','#9EC3DD']], sizes:CLOTHES,
+      desc:'A bias-cut satin slip with a gentle cowl neckline. Wear it alone for evenings or layer a knit over it for daytime.',
+      details:['Satin finish','Cowl neckline','Bias cut','Dry clean recommended']},
+    {id:'dina-ribbed-midi', name:'Dina ribbed midi dress', cat:'dresses', kind:'midi', price:39,
+      colors:[['Mocha','#8B6B5A'],['Ice blue','#A8D4E6'],['Orchid','#AF6B9A']], sizes:CLOTHES,
+      desc:'A stretchy ribbed knit that hugs without clinging. The kind of dress you reach for every week.',
+      details:['Ribbed stretch knit','Crew neck','Midi length','Machine wash cold']},
+    {id:'sara-linen-set', name:'Sara linen shirt and shorts set', cat:'sets', kind:'setShorts', price:46, isNew:true,
+      colors:[['White','#F6F3EE'],['Sand','#D8C3A5'],['Ice blue','#A8D4E6']], sizes:CLOTHES,
+      desc:'A relaxed shirt and high-waisted shorts in washed linen. Wear them together for the beach or split them up through the week.',
+      details:['Washed linen','Button-front shirt','Elastic back waist','Machine wash cold']},
+    {id:'maya-knit-coord', name:'Maya knit co-ord', cat:'sets', kind:'setPants', price:58,
+      colors:[['Lilac','#C9B2D9'],['Cream','#EEE5D4']], sizes:CLOTHES,
+      desc:'A soft knit top and wide-leg trousers that feel like loungewear but look put together.',
+      details:['Fine knit','Wide-leg trousers','Elastic waist','Hand wash, dry flat']},
+    {id:'joelle-pleated-set', name:'Joelle pleated skirt set', cat:'sets', kind:'setSkirt', price:52,
+      colors:[['Rose','#D99AB8'],['Navy','#2F3A57']], sizes:CLOTHES,
+      desc:'A fitted top with a swishy pleated midi skirt. Made for occasions when you want to feel a little special.',
+      details:['Pleated satin skirt','Fitted top','Hidden side zip','Dry clean recommended']},
+    {id:'celine-tote', name:'Celine everyday tote', cat:'bags', kind:'tote', price:38, isNew:true,
+      colors:[['Taupe','#B9A28D'],['Black','#2E2529'],['Blush','#E8B9D0']], sizes:['One size'],
+      desc:'A structured tote big enough for a laptop, a water bottle and everything else you carry around.',
+      details:['Vegan leather','Inner zip pocket','Fits a 13" laptop','Wipe clean']},
+    {id:'mira-mini-bag', name:'Mira mini shoulder bag', cat:'bags', kind:'mini', price:34,
+      colors:[['Lilac','#C9B2D9'],['Ice blue','#A8D4E6'],['Ivory','#F1EBE1']], sizes:['One size'],
+      desc:'A small curved shoulder bag that holds your phone, keys and lipstick, and finishes any outfit.',
+      details:['Vegan leather','Magnetic closure','Adjustable strap','Wipe clean']},
+    {id:'lotus-drop-earrings', name:'Lotus drop earrings', cat:'accessories', kind:'earrings', price:18, isNew:true,
+      colors:[['Gold','#D4B46A'],['Silver','#C5CAD1']], sizes:['One size'],
+      desc:'Lightweight teardrop earrings inspired by the lotus in our logo. Comfortable enough to wear all day.',
+      details:['Stainless steel','Hypoallergenic','Lightweight','Keep dry']},
+    {id:'yasmine-silk-scarf', name:'Yasmine satin scarf', cat:'accessories', kind:'scarf', price:24,
+      colors:[['Orchid','#AF6B9A'],['Sky','#9EC3DD']], sizes:['One size'],
+      desc:'A square satin scarf to wear in your hair, around your neck or tied to your bag.',
+      details:['Satin','70 × 70 cm','Hand-rolled edges','Hand wash cold']},
+    {id:'petal-pendant', name:'Petal pendant necklace', cat:'accessories', kind:'necklace', price:22,
+      colors:[['Gold','#D4B46A'],['Silver','#C5CAD1']], sizes:['One size'],
+      desc:'A fine chain with a small petal pendant. Lovely on its own or layered with other necklaces.',
+      details:['Stainless steel','45 cm chain with extender','Tarnish resistant','Keep dry']}
+  ];
+  function byId(id){ for (var i=0;i<PRODUCTS.length;i++) if (PRODUCTS[i].id===id) return PRODUCTS[i]; return null; }
+  function money(n){ return '$' + n; }
+
+  /* ---------- illustrations ---------- */
+  function shade(hex, amt){
+    var n = parseInt(hex.slice(1),16), r=n>>16, g=(n>>8)&255, b=n&255;
+    function f(c){ return Math.max(0,Math.min(255,Math.round(amt<0 ? c*(1+amt) : c+(255-c)*amt))); }
+    return '#' + ((1<<24) + (f(r)<<16) + (f(g)<<8) + f(b)).toString(16).slice(1);
+  }
+  var SHAPES = {
+    maxi:'<path d="M42 14 L45 30 M58 14 L55 30"/><path class="f" d="M45 30 L55 30 C58 44 62 52 76 112 L24 112 C38 52 42 44 45 30 Z"/><path d="M40 52 Q50 57 60 52"/>',
+    wrap:'<path class="f" d="M38 18 Q50 26 62 18 L70 24 L78 40 L70 44 L64 34 L62 52 C66 62 72 74 76 98 L24 98 C28 74 34 62 38 52 L36 34 L30 44 L22 40 L30 24 Z"/><path d="M38 18 L60 54 M62 18 L48 40"/><path d="M38 54 Q50 58 62 54 L70 64"/>',
+    slip:'<path d="M41 16 L44 28 M59 16 L56 28"/><path class="f" d="M44 28 Q50 34 56 28 C58 44 62 56 70 100 L30 100 C38 56 42 44 44 28 Z"/><path d="M44 30 Q50 38 56 30"/>',
+    midi:'<path class="f" d="M40 16 Q50 22 60 16 L66 20 L64 50 C68 64 70 78 72 100 L28 100 C30 78 32 64 36 50 L34 20 Z"/><path d="M42 30 L42 96 M50 24 L50 98 M58 30 L58 96"/>',
+    setShorts:'<path class="f" d="M32 14 L44 10 L50 20 L56 10 L68 14 L80 38 L70 42 L67 32 L67 62 L33 62 L33 32 L30 42 L20 38 Z"/><path d="M50 20 L50 62 M44 10 L50 20 L56 10"/><path class="f" d="M33 68 L67 68 L71 94 L53 94 L50 80 L47 94 L29 94 Z"/>',
+    setPants:'<path class="f" d="M30 14 L42 10 Q50 18 58 10 L70 14 L80 36 L70 40 L68 30 L68 58 L32 58 L32 30 L30 40 L20 36 Z"/><path class="f" d="M32 64 L68 64 L76 118 L56 118 L50 82 L44 118 L24 118 Z"/><path d="M32 70 L68 70"/>',
+    setSkirt:'<path class="f" d="M34 14 L44 10 Q50 16 56 10 L66 14 L70 50 L30 50 Z"/><path class="f" d="M32 56 L68 56 L80 116 L20 116 Z"/><path d="M38 58 L32 114 M44 58 L42 116 M50 58 L50 116 M56 58 L58 116 M62 58 L68 114"/>',
+    tote:'<path d="M38 50 C38 24 62 24 62 50"/><path class="f" d="M22 50 L78 50 L74 112 L26 112 Z"/><path d="M22 64 L78 64"/>',
+    mini:'<path d="M30 60 C24 20 76 20 70 60"/><path class="f" d="M24 62 Q50 54 76 62 Q78 92 50 98 Q22 92 24 62 Z"/><path d="M24 64 Q50 78 76 64"/><circle class="f" cx="50" cy="74" r="3"/>',
+    earrings:'<circle cx="34" cy="26" r="4"/><path d="M34 30 L34 46"/><path class="f" d="M34 46 C20 64 22 86 34 94 C46 86 48 64 34 46 Z"/><circle cx="66" cy="26" r="4"/><path d="M66 30 L66 46"/><path class="f" d="M66 46 C52 64 54 86 66 94 C78 86 80 64 66 46 Z"/>',
+    scarf:'<path class="f" d="M20 30 L80 30 L80 90 L20 90 Z" transform="rotate(8 50 60)"/><path d="M28 38 L72 38 L72 82 L28 82 Z" transform="rotate(8 50 60)"/><path class="f" d="M50 90 L60 116 L48 112 L40 118 Z"/>',
+    necklace:'<path d="M24 22 C24 70 76 70 76 22"/><path class="f" d="M50 64 C42 74 42 86 50 94 C58 86 58 74 50 64 Z"/><circle cx="50" cy="62" r="2.5"/>'
+  };
+  var VIEWBOX = { front:'0 0 100 125', detail:'25 25 50 62', fabric:'0 0 100 125' };
+  function art(p, hex, view){
+    view = view || 'front';
+    var stroke = shade(hex, -0.38), uid = 'f' + Math.random().toString(36).slice(2,7);
+    var bg = '<rect width="100" height="125" fill="' + hex + '" opacity=".16"/>';
+    if (view === 'fabric') {
+      return '<svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="'+uid+'" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="'+hex+'"/><path d="M0 3 H6" stroke="'+shade(hex,-0.12)+'" stroke-width="1.4"/></pattern></defs><rect width="100" height="125" fill="url(#'+uid+')"/><circle cx="72" cy="30" r="40" fill="#fff" opacity=".12"/></svg>';
+    }
+    return '<svg viewBox="'+VIEWBOX[view]+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + bg +
+      '<ellipse cx="50" cy="108" rx="30" ry="3" fill="'+stroke+'" opacity=".12"/>' +
+      '<g transform="translate(9 10) scale(.82)" fill="none" stroke="'+stroke+'" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">' +
+      SHAPES[p.kind].replace(/class="f"/g, 'fill="'+hex+'"') + '</g></svg>';
+  }
+
+  var HEART_SVG = '<svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20z"/></svg>';
+  function heartBtn(id, extra){
+    var on = isWished(id);
+    return '<button class="heart'+(extra?' '+extra:'')+(on?' on':'')+'" data-heart="'+id+'" aria-pressed="'+on+'" aria-label="'+(on?'Remove from wishlist':'Save to wishlist')+'">'+HEART_SVG+'</button>';
+  }
+  function card(p, withAdd){
+    return '<div class="pcard">' + heartBtn(p.id) + '<a class="plink" href="#/product/'+p.id+'">' +
+      '<div class="pimg">' + art(p, p.colors[0][1]) + (p.isNew ? '<span class="badge">New</span>' : '') + '</div>' +
+      '<div class="pmeta"><h3>'+p.name+'</h3><span class="price">'+money(p.price)+'</span></div>' +
+      '<p class="pcat">'+CATS[p.cat]+'</p>' +
+      '<div class="dots" aria-label="'+p.colors.length+' colours">' + p.colors.map(function(c){ return '<i style="background:'+c[1]+'" title="'+c[0]+'"></i>'; }).join('') + '</div></a>' +
+      (withAdd ? '<button class="btn card-add" data-quickadd="'+p.id+'">'+(p.sizes.length===1?'Add to bag':'Choose size')+'</button>' : '') + '</div>';
+  }
+  function stagger(container){
+    if (reduce || !Element.prototype.animate) return;
+    Array.prototype.forEach.call(container.children, function(el, i){
+      el.animate([{opacity:0, transform:'translateY(18px)'},{opacity:1, transform:'none'}], {duration:550, delay:Math.min(i,10)*60, easing:EASE, fill:'backwards'});
+    });
+  }
+
+
+  /* ---------- saved state (this browser only) ---------- */
+  function load(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+  function save(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  var wish = load('yalma-wish', []).filter(byId);
+  var cart = load('yalma-cart', []).filter(function(l){ return byId(l.id); });
+  var customer = load('yalma-customer', {name:'', phone:'', area:'', notes:''});
+  function isWished(id){ return wish.indexOf(id) > -1; }
+
+  /* ---------- toast ---------- */
+  var toastEl = document.getElementById('toast'), toastT;
+  function toast(msg, action, fn){
+    toastEl.textContent = msg;
+    if (action) { var b = document.createElement('button'); b.textContent = action; b.onclick = function(){ toastEl.classList.remove('show'); fn(); }; toastEl.appendChild(b); }
+    toastEl.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove('show'); }, 4200);
+  }
+
+  /* ---------- nav ---------- */
+  var nav = document.getElementById('nav'), current = null;
   function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  /* mobile menu */
   var btn = document.getElementById('menuBtn');
-  btn.addEventListener('click', function(){
-    var open = document.body.classList.toggle('menu-open');
-    btn.setAttribute('aria-expanded', open);
-  });
+  btn.addEventListener('click', function(){ var open = document.body.classList.toggle('menu-open'); btn.setAttribute('aria-expanded', open); });
   document.querySelectorAll('#links a').forEach(function(a){
     a.addEventListener('click', function(){ document.body.classList.remove('menu-open'); btn.setAttribute('aria-expanded', false); });
   });
+  function setActive(key){ document.querySelectorAll('[data-nav]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-nav') === key); }); }
 
-  /* hero sequence: lotus draws itself, letters rise, then the rest fades in */
-  var paths = document.querySelectorAll('#lotus path');
-  var letters = document.querySelectorAll('#wordmark span');
-  var later = [document.getElementById('sub'), document.getElementById('tagline'), document.getElementById('heroCta')];
-  if (!reduce && Element.prototype.animate) {
-    paths.forEach(function(p, i){
-      var len = p.getTotalLength();
-      p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
-      p.animate([{strokeDashoffset: len},{strokeDashoffset: 0}], {duration: 1400, delay: 150 + i*140, easing:'cubic-bezier(.6,0,.2,1)', fill:'forwards'});
-    });
-    letters.forEach(function(l, i){
-      l.style.opacity = 0;
-      l.animate([{opacity:0, transform:'translateY(40px)', filter:'blur(6px)'},{opacity:1, transform:'none', filter:'blur(0)'}],
-        {duration: 900, delay: 1100 + i*110, easing:'cubic-bezier(.2,.8,.2,1)', fill:'forwards'});
-    });
-    later.forEach(function(el, i){
-      el.style.opacity = 0;
-      el.animate([{opacity:0, transform:'translateY(14px)'},{opacity:1, transform:'none'}],
-        {duration: 800, delay: 1900 + i*180, easing:'ease-out', fill:'forwards'});
-    });
+  /* ---------- views ---------- */
+  var views = { home:document.getElementById('view-home'), catalog:document.getElementById('view-catalog'), product:document.getElementById('view-product'), wishlist:document.getElementById('view-wishlist') };
+  function show(name, keepScroll){
+    var changed = current !== name;
+    Object.keys(views).forEach(function(k){ views[k].hidden = k !== name; });
+    nav.classList.toggle('solid', name !== 'home');
+    if (!keepScroll) window.scrollTo(0, 0);
+    if (changed && !reduce && Element.prototype.animate)
+      views[name].animate([{opacity:0, transform:'translateY(14px)'},{opacity:1, transform:'none'}], {duration:500, easing:EASE});
+    current = name;
   }
 
-  /* drifting petals in the hero */
-  var cv = document.getElementById('petals'), ctx = cv.getContext('2d'), W, H, petals = [], dpr = Math.min(window.devicePixelRatio||1, 2);
-  function size(){ W = cv.offsetWidth; H = cv.offsetHeight; cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  /* ---------- home ---------- */
+  var heroPlayed = false;
+  function playHero(){
+    if (heroPlayed) return; heroPlayed = true;
+    if (reduce || !Element.prototype.animate) return;
+    document.querySelectorAll('#lotus path').forEach(function(p, i){
+      var len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
+      p.animate([{strokeDashoffset:len},{strokeDashoffset:0}], {duration:1400, delay:150 + i*140, easing:'cubic-bezier(.6,0,.2,1)', fill:'forwards'});
+    });
+    document.querySelectorAll('#wordmark span').forEach(function(l, i){
+      l.animate([{opacity:0, transform:'translateY(40px)', filter:'blur(6px)'},{opacity:1, transform:'none', filter:'blur(0)'}], {duration:900, delay:1100 + i*110, easing:EASE, fill:'backwards'});
+    });
+    ['sub','tagline','heroCta'].forEach(function(id, i){
+      document.getElementById(id).animate([{opacity:0, transform:'translateY(14px)'},{opacity:1, transform:'none'}], {duration:800, delay:1900 + i*180, easing:'ease-out', fill:'backwards'});
+    });
+  }
+  var homeNew = document.getElementById('homeNew');
+  homeNew.innerHTML = PRODUCTS.filter(function(p){ return p.isNew; }).slice(0,4).map(function(p){ return card(p); }).join('');
+
+  function showHome(section){
+    show('home', !!section);
+    setActive(section && section !== 'contact' ? section : 'home');
+    document.title = 'Yalma Boutique, Lebanon';
+    sizeCanvas(); playHero();
+    if (section && document.getElementById(section)) {
+      requestAnimationFrame(function(){ document.getElementById(section).scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); });
+    }
+  }
+
+  /* drifting petals */
+  var cv = document.getElementById('petals'), ctx = cv.getContext('2d'), W = 0, H = 0, petals = [], dpr = Math.min(window.devicePixelRatio||1, 2), running = false;
+  function sizeCanvas(){
+    W = cv.offsetWidth; H = cv.offsetHeight; if (!W) return;
+    cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    if (!petals.length) { for (var i=0;i<(W<600?14:26);i++) petals.push(make(true)); }
+    if (reduce) { ctx.clearRect(0,0,W,H); petals.forEach(drawPetal); }
+  }
   function make(init){
-    return { x: Math.random()*W, y: init ? Math.random()*H : -20, r: 5 + Math.random()*7,
-      vy: .25 + Math.random()*.5, vx: -.2 + Math.random()*.4, a: Math.random()*Math.PI*2, va: -.01 + Math.random()*.02,
-      sway: Math.random()*Math.PI*2, c: Math.random() < .5 ? 'rgba(168,212,230,' : 'rgba(255,255,255,', o: .25 + Math.random()*.4 };
+    return { x:Math.random()*W, y:init ? Math.random()*H : -20, r:5+Math.random()*7, vy:.25+Math.random()*.5, vx:-.2+Math.random()*.4,
+      a:Math.random()*Math.PI*2, va:-.01+Math.random()*.02, sway:Math.random()*Math.PI*2,
+      c:Math.random()<.5 ? 'rgba(168,212,230,' : 'rgba(255,255,255,', o:.25+Math.random()*.4 };
   }
-  function petal(p){
-    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a);
-    ctx.beginPath(); ctx.moveTo(0, -p.r); ctx.bezierCurveTo(p.r*.9, -p.r*.4, p.r*.6, p.r*.8, 0, p.r);
-    ctx.bezierCurveTo(-p.r*.6, p.r*.8, -p.r*.9, -p.r*.4, 0, -p.r);
+  function drawPetal(p){
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.beginPath(); ctx.moveTo(0,-p.r);
+    ctx.bezierCurveTo(p.r*.9,-p.r*.4,p.r*.6,p.r*.8,0,p.r); ctx.bezierCurveTo(-p.r*.6,p.r*.8,-p.r*.9,-p.r*.4,0,-p.r);
     ctx.fillStyle = p.c + p.o + ')'; ctx.fill(); ctx.restore();
   }
-  var running = true;
   function tick(){
     if (!running) return;
     ctx.clearRect(0,0,W,H);
-    petals.forEach(function(p, i){
-      p.sway += .015; p.y += p.vy; p.x += p.vx + Math.sin(p.sway)*.35; p.a += p.va;
-      if (p.y > H + 20) petals[i] = make(false);
-      petal(p);
-    });
+    petals.forEach(function(p,i){ p.sway+=.015; p.y+=p.vy; p.x+=p.vx+Math.sin(p.sway)*.35; p.a+=p.va; if (p.y>H+20) petals[i]=make(false); drawPetal(p); });
     requestAnimationFrame(tick);
   }
-  size();
-  var count = W < 600 ? 14 : 26;
-  for (var i=0;i<count;i++) petals.push(make(true));
-  window.addEventListener('resize', size);
-  if (reduce) { petals.forEach(petal); }
-  else {
-    tick();
-    /* pause when hero is off screen */
-    new IntersectionObserver(function(e){ var vis = e[0].isIntersecting; if (vis && !running){ running = true; tick(); } else if (!vis) running = false; })
-      .observe(document.querySelector('.hero'));
-  }
+  window.addEventListener('resize', function(){ if (current === 'home') sizeCanvas(); });
+  if (!reduce) new IntersectionObserver(function(e){
+    var vis = e[0].isIntersecting;
+    if (vis && !running){ running = true; tick(); } else if (!vis) running = false;
+  }).observe(document.querySelector('.hero'));
 
-  /* about art: rings breathe gently with scroll */
-  var art = document.getElementById('aboutArt'), rings = art.querySelectorAll('.ring');
+  var art_ = document.getElementById('aboutArt'), rings = art_.querySelectorAll('.ring');
   if (!reduce) window.addEventListener('scroll', function(){
-    var r = art.getBoundingClientRect(), t = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+    if (current !== 'home') return;
+    var r = art_.getBoundingClientRect(), t = (window.innerHeight - r.top) / (window.innerHeight + r.height);
     if (t < 0 || t > 1) return;
-    rings.forEach(function(ring, i){ ring.style.transform = 'scale(' + (1 + (t - .5) * .12 * (i+1)) + ')'; });
+    rings.forEach(function(ring, i){ ring.style.transform = 'scale(' + (1 + (t-.5)*.12*(i+1)) + ')'; });
   }, {passive:true});
 
-  /* heading reveals + order steps light up in sequence */
   var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if (!en.isIntersecting) return;
-      en.target.classList.add('in'); io.unobserve(en.target);
-    });
+    entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
   }, {threshold:.3});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  function watchReveals(root){ root.querySelectorAll('.reveal:not(.in)').forEach(function(el){ io.observe(el); }); }
+  watchReveals(document);
 
   var steps = document.getElementById('steps');
   new IntersectionObserver(function(e, obs){
-    if (!e[0].isIntersecting) return;
-    obs.disconnect();
-    var items = steps.querySelectorAll('.step'), prog = document.getElementById('progress');
-    prog.style.width = 'calc(100% - 44px)';
-    items.forEach(function(s, i){ setTimeout(function(){ s.classList.add('on'); }, reduce ? 0 : i*420); });
+    if (!e[0].isIntersecting) return; obs.disconnect();
+    document.getElementById('progress').style.width = 'calc(100% - 44px)';
+    steps.querySelectorAll('.step').forEach(function(s, i){ setTimeout(function(){ s.classList.add('on'); }, reduce ? 0 : i*420); });
   }, {threshold:.4}).observe(steps);
+
+  /* ---------- catalog ---------- */
+  var LOTUS_GHOST = '<svg class="ghost" viewBox="0 0 200 140" aria-hidden="true"><path d="M100 18 C78 48 78 90 100 116 C122 90 122 48 100 18 Z"/><path d="M100 116 C70 106 54 76 61 44 C80 58 95 84 100 116"/><path d="M100 116 C130 106 146 76 139 44 C120 58 105 84 100 116"/><path d="M100 119 C66 122 36 102 24 74 C54 76 84 94 100 119"/><path d="M100 119 C134 122 164 102 176 74 C146 76 116 94 100 119"/></svg>';
+  var catState = { cat:'all', sort:'new', q:'' };
+  function buildCatalog(){
+    views.catalog.innerHTML =
+      '<header class="page-head">' + LOTUS_GHOST + '<div class="wrap">' +
+        '<nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span class="sep">/</span><span>Shop</span></nav>' +
+        '<h1 id="catTitle">The collection</h1><p>Every piece we have in stock right now. Tap a piece to choose your size and colour, then order with one message.</p>' +
+      '</div></header>' +
+      '<section style="padding-top:0"><div class="wrap">' +
+        '<div class="toolbar">' +
+          '<div class="chips" id="chips">' +
+            ['all'].concat(Object.keys(CATS)).map(function(k){ return '<a class="chip" data-cat="'+k+'" href="#/catalog'+(k==='all'?'':'/'+k)+'">'+(k==='all'?'All':CATS[k])+'</a>'; }).join('') +
+          '</div>' +
+          '<div class="tools">' +
+            '<label class="sr" for="q" style="position:absolute;left:-9999px">Search</label><input class="field" id="q" type="search" placeholder="Search pieces">' +
+            '<label for="sort" style="position:absolute;left:-9999px">Sort</label><select class="field" id="sort"><option value="new">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>' +
+          '</div>' +
+        '</div>' +
+        '<p class="count" id="count"></p><div class="pgrid" id="pgrid"></div>' +
+      '</div></section>';
+    document.getElementById('q').addEventListener('input', function(e){ catState.q = e.target.value.trim().toLowerCase(); renderGrid(); });
+    document.getElementById('sort').addEventListener('change', function(e){ catState.sort = e.target.value; renderGrid(); });
+  }
+  function renderGrid(){
+    var list = PRODUCTS.map(function(p, i){ return {p:p, i:i}; }).filter(function(o){
+      return (catState.cat === 'all' || o.p.cat === catState.cat) && (!catState.q || (o.p.name + ' ' + CATS[o.p.cat]).toLowerCase().indexOf(catState.q) > -1);
+    });
+    list.sort(function(a, b){
+      if (catState.sort === 'low') return a.p.price - b.p.price;
+      if (catState.sort === 'high') return b.p.price - a.p.price;
+      return (b.p.isNew?1:0) - (a.p.isNew?1:0) || a.i - b.i;
+    });
+    var grid = document.getElementById('pgrid');
+    document.getElementById('count').textContent = list.length + (list.length === 1 ? ' piece' : ' pieces');
+    if (!list.length) {
+      grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><h3>No pieces match "' + catState.q.replace(/</g,'&lt;') + '"</h3><p>Try another word, or <button class="link-btn" id="clearQ">clear the search</button>.</p></div>';
+      document.getElementById('clearQ').onclick = function(){ document.getElementById('q').value = ''; catState.q = ''; renderGrid(); };
+      return;
+    }
+    grid.innerHTML = list.map(function(o){ return card(o.p); }).join('');
+    stagger(grid);
+  }
+  function showCatalog(cat){
+    if (!CATS[cat]) cat = 'all';
+    var fresh = current !== 'catalog' || !views.catalog.firstChild;
+    if (!views.catalog.firstChild) buildCatalog();
+    catState.cat = cat;
+    show('catalog', !fresh);
+    setActive('catalog');
+    document.getElementById('catTitle').textContent = cat === 'all' ? 'The collection' : CATS[cat];
+    document.querySelectorAll('#chips .chip').forEach(function(c){ c.classList.toggle('on', c.getAttribute('data-cat') === cat); });
+    document.title = (cat === 'all' ? 'Shop' : CATS[cat]) + ' | Yalma Boutique';
+    renderGrid();
+  }
+
+  /* ---------- product ---------- */
+  function showProduct(id){
+    var p = byId(id);
+    setActive('catalog');
+    if (!p) {
+      views.product.innerHTML = '<div class="pd-wrap"><div class="wrap empty"><h3>This piece is no longer available</h3><p>It may have sold out. <a href="#/catalog">See everything in stock</a>.</p></div></div>';
+      show('product'); document.title = 'Not found | Yalma Boutique'; return;
+    }
+    var st = { color:0, size: p.sizes.length === 1 ? p.sizes[0] : null, qty:1, view:'front' };
+    var related = PRODUCTS.filter(function(x){ return x.cat === p.cat && x.id !== p.id; });
+    PRODUCTS.forEach(function(x){ if (related.length < 4 && x.id !== p.id && related.indexOf(x) < 0) related.push(x); });
+    related = related.slice(0,4);
+
+    views.product.innerHTML =
+      '<div class="pd-wrap"><div class="wrap">' +
+        '<nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span class="sep">/</span><a href="#/catalog">Shop</a><span class="sep">/</span><a href="#/catalog/'+p.cat+'">'+CATS[p.cat]+'</a><span class="sep">/</span><span>'+p.name+'</span></nav>' +
+        '<div class="pd">' +
+          '<div class="gallery">' +
+            '<div class="main-img" id="mainImg" role="img" aria-label="'+p.name+'"></div>' +
+            '<div class="thumbs" id="thumbs">' + ['front','detail','fabric'].map(function(v){ return '<button class="thumb" data-view="'+v+'" aria-label="'+({front:'Full view',detail:'Close-up',fabric:'Fabric colour'})[v]+'"></button>'; }).join('') + '</div>' +
+          '</div>' +
+          '<div class="pd-info">' +
+            '<h1>'+p.name+'</h1><p class="pd-price">'+money(p.price)+'</p><p class="pd-desc">'+p.desc+'</p>' +
+            '<div class="opt"><div class="opt-label">Colour <span id="colorName"></span></div><div class="swatches" id="swatches">' +
+              p.colors.map(function(c, i){ return '<button class="swatch" data-i="'+i+'" style="background:'+c[1]+'" aria-label="'+c[0]+'"></button>'; }).join('') + '</div></div>' +
+            '<div class="opt" id="sizeOpt"><div class="opt-label">Size <span id="sizeName"></span></div><div class="sizes" id="sizes">' +
+              p.sizes.map(function(s){ return '<button class="size" data-s="'+s+'">'+s+'</button>'; }).join('') + '</div><p class="hint" id="hint"></p></div>' +
+            '<div class="buy"><div class="qty"><button id="minus" aria-label="Decrease quantity">−</button><output id="qty">1</output><button id="plus" aria-label="Increase quantity">+</button></div>' +
+              '<button class="btn order-btn" id="addBtn" style="border:0;cursor:pointer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg>Add to bag</button>' + heartBtn(p.id, 'pd-heart') + '</div>' +
+            '<p class="note">Checkout happens on Instagram: your bag is sent to us as one message, and we confirm availability and delivery.</p>' +
+            '<div class="acc">' +
+              '<details open><summary>Details and care</summary><div class="body"><ul>' + p.details.map(function(d){ return '<li>'+d+'</li>'; }).join('') + '</ul></div></details>' +
+              (p.sizes.length > 1 ? '<details><summary>Size guide</summary><div class="body"><p style="margin:0">XS 32–34 · S 36 · M 38 · L 40 · XL 42 (EU sizes). Between sizes? Message us your usual size and we\'ll help you choose.</p></div></details>' : '') +
+              '<details><summary>Delivery and exchanges</summary><div class="body"><p style="margin:0">We deliver across Lebanon, with payment on delivery. If something doesn\'t fit, message us within 3 days of receiving it to arrange an exchange.</p></div></details>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div></div>' +
+      '<section class="related"><div class="wrap"><h2>You may also like</h2><div class="pgrid" id="related">' + related.map(function(p){ return card(p); }).join('') + '</div></div></section>';
+
+    var main = document.getElementById('mainImg');
+    function paint(animate){
+      var hex = p.colors[st.color][1];
+      main.innerHTML = art(p, hex, st.view);
+      if (animate && !reduce && main.firstChild.animate) main.firstChild.animate([{opacity:0, transform:'scale(.97)'},{opacity:1, transform:'none'}], {duration:420, easing:EASE});
+      document.querySelectorAll('#thumbs .thumb').forEach(function(t){ t.innerHTML = art(p, hex, t.getAttribute('data-view')); t.classList.toggle('on', t.getAttribute('data-view') === st.view); });
+      document.querySelectorAll('#swatches .swatch').forEach(function(s){ s.classList.toggle('on', +s.getAttribute('data-i') === st.color); });
+      document.getElementById('colorName').textContent = p.colors[st.color][0];
+      document.querySelectorAll('#sizes .size').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-s') === st.size); });
+      document.getElementById('sizeName').textContent = st.size || '';
+      document.getElementById('qty').textContent = st.qty;
+    }
+    paint(false);
+    document.getElementById('swatches').onclick = function(e){ var b = e.target.closest('.swatch'); if (b){ st.color = +b.getAttribute('data-i'); paint(true); } };
+    document.getElementById('thumbs').onclick = function(e){ var b = e.target.closest('.thumb'); if (b){ st.view = b.getAttribute('data-view'); paint(true); } };
+    document.getElementById('sizes').onclick = function(e){ var b = e.target.closest('.size'); if (b){ st.size = b.getAttribute('data-s'); document.getElementById('hint').textContent = ''; paint(false); } };
+    document.getElementById('minus').onclick = function(){ st.qty = Math.max(1, st.qty-1); paint(false); };
+    document.getElementById('plus').onclick = function(){ st.qty = Math.min(9, st.qty+1); paint(false); };
+
+    /* hover zoom follows the cursor */
+    main.addEventListener('mousemove', function(e){
+      if (reduce || st.view === 'fabric') return;
+      var r = main.getBoundingClientRect(), svg = main.firstChild;
+      svg.style.transformOrigin = ((e.clientX-r.left)/r.width*100) + '% ' + ((e.clientY-r.top)/r.height*100) + '%';
+      main.classList.add('zoom');
+    });
+    main.addEventListener('mouseleave', function(){ main.classList.remove('zoom'); });
+
+    document.getElementById('addBtn').addEventListener('click', function(){
+      if (!st.size) {
+        var o = document.getElementById('sizeOpt');
+        document.getElementById('hint').textContent = 'Choose a size to continue.';
+        o.classList.remove('shake'); void o.offsetWidth; o.classList.add('shake');
+        return;
+      }
+      addToCart(p.id, st.color, st.size, st.qty, main.querySelector('svg'));
+    });
+
+    show('product');
+    stagger(document.getElementById('related'));
+    document.title = p.name + ' | Yalma Boutique';
+  }
+
+
+  /* ---------- wishlist ---------- */
+  function updateBadges(popWhich){
+    var wc = document.getElementById('wishCount'), cc = document.getElementById('cartCount');
+    var n = cart.reduce(function(a, l){ return a + l.qty; }, 0);
+    wc.textContent = wish.length; wc.hidden = !wish.length;
+    cc.textContent = n; cc.hidden = !n;
+    var el = popWhich === 'wish' ? wc : popWhich === 'cart' ? cc : null;
+    if (el && !reduce) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
+  }
+  function burst(btn){
+    if (reduce) return;
+    var r = btn.getBoundingClientRect(), cx = r.left + r.width/2, cy = r.top + r.height/2;
+    for (var i=0;i<8;i++){
+      var d = document.createElement('i'); d.className = 'burst';
+      d.style.left = cx-3+'px'; d.style.top = cy-3+'px'; d.style.background = i%2 ? 'var(--orchid)' : 'var(--ice)';
+      document.body.appendChild(d);
+      var ang = i/8*Math.PI*2, dist = 22 + Math.random()*10;
+      d.animate([{transform:'translate(0,0) scale(1)', opacity:1},{transform:'translate('+Math.cos(ang)*dist+'px,'+Math.sin(ang)*dist+'px) scale(.3)', opacity:0}], {duration:600, easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish = (function(x){ return function(){ x.remove(); }; })(d);
+    }
+  }
+  function toggleWish(id, btn){
+    var on = !isWished(id);
+    if (on) wish.unshift(id); else wish.splice(wish.indexOf(id), 1);
+    save('yalma-wish', wish);
+    document.querySelectorAll('[data-heart="'+id+'"]').forEach(function(b){
+      b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', on ? 'Remove from wishlist' : 'Save to wishlist');
+    });
+    if (on) { burst(btn); if (!reduce && btn.animate) btn.animate([{transform:'scale(1)'},{transform:'scale(1.3)'},{transform:'scale(1)'}], {duration:420, easing:EASE}); }
+    updateBadges('wish');
+    if (current === 'wishlist' && !on) {
+      var cardEl = btn.closest('.pcard');
+      if (cardEl && !reduce && cardEl.animate) cardEl.animate([{opacity:1, transform:'none'},{opacity:0, transform:'scale(.92)'}], {duration:300, easing:'ease-in'}).onfinish = renderWishlist;
+      else renderWishlist();
+    } else toast(on ? 'Saved to your wishlist.' : 'Removed from your wishlist.', on ? 'View wishlist' : null, function(){ location.hash = '#/wishlist'; });
+  }
+  function renderWishlist(){
+    var grid = document.getElementById('wishGrid'), items = wish.map(byId).filter(Boolean);
+    document.getElementById('wishSub').textContent = items.length ? items.length + (items.length === 1 ? ' saved piece' : ' saved pieces') + '. Saved pieces stay here on this device.' : 'Tap the heart on any piece to save it here.';
+    if (!items.length) {
+      grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><h3>Your wishlist is empty</h3><p>Browse the shop and tap the heart on pieces you love.</p><p><a class="btn btn-ice" href="#/catalog">Browse the shop</a></p></div>';
+      return;
+    }
+    grid.innerHTML = items.map(function(p){ return card(p, true); }).join('');
+    stagger(grid);
+  }
+  function showWishlist(){
+    if (!views.wishlist.firstChild) views.wishlist.innerHTML =
+      '<header class="page-head">' + LOTUS_GHOST + '<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span class="sep">/</span><span>Wishlist</span></nav>' +
+      '<h1>Your wishlist</h1><p id="wishSub"></p></div></header>' +
+      '<section style="padding-top:2.5rem"><div class="wrap"><div class="pgrid" id="wishGrid"></div></div></section>';
+    show('wishlist'); setActive(null);
+    document.title = 'Wishlist | Yalma Boutique';
+    renderWishlist();
+  }
+
+  /* ---------- cart ---------- */
+  var lastMsg = '';
+  function copyMsg(notify){
+    var ok = function(){ if (notify) toast('Order message copied.'); };
+    var fallback = function(){ var t = document.getElementById('orderText'); if (t){ t.focus(); t.select(); try { document.execCommand('copy'); ok(); } catch(e){ if (notify) toast('Select the message and copy it.'); } } };
+    try { navigator.clipboard.writeText(lastMsg).then(ok, fallback); } catch(e){ fallback(); }
+  }
+  var drawer = document.getElementById('drawer'), dBody = document.getElementById('drawerBody'), dFoot = document.getElementById('drawerFoot'), sent = false, lastFocus = null;
+  function lineKey(l){ return l.id + '|' + l.color + '|' + l.size; }
+  function subtotal(){ return cart.reduce(function(a, l){ return a + byId(l.id).price * l.qty; }, 0); }
+  function addToCart(id, color, size, qty, fromEl){
+    sent = false;
+    var key = id + '|' + color + '|' + size, found = null;
+    cart.forEach(function(l){ if (lineKey(l) === key) found = l; });
+    if (found) found.qty = Math.min(9, found.qty + qty); else cart.push({id:id, color:color, size:size, qty:qty});
+    save('yalma-cart', cart);
+    var p = byId(id);
+    flyToBag(fromEl, function(){ updateBadges('cart'); });
+    if (!fromEl || reduce) updateBadges('cart');
+    renderCart();
+    toast(p.name + ' added to your bag.', 'View bag', openCart);
+  }
+  function flyToBag(el, done){
+    var target = document.getElementById('cartBtn');
+    if (!el || reduce || !el.animate) return;
+    var a = el.getBoundingClientRect(), b = target.getBoundingClientRect();
+    var clone = el.cloneNode(true);
+    clone.style.cssText = 'position:fixed;z-index:95;pointer-events:none;border-radius:16px;overflow:hidden;left:'+a.left+'px;top:'+a.top+'px;width:'+a.width+'px;height:'+a.height+'px;background:var(--surface)';
+    document.body.appendChild(clone);
+    var dx = b.left + b.width/2 - (a.left + a.width/2), dy = b.top + b.height/2 - (a.top + a.height/2);
+    clone.animate([
+      {transform:'translate(0,0) scale(1)', opacity:1},
+      {transform:'translate('+dx*.6+'px,'+(dy*.6-60)+'px) scale(.35)', opacity:.9, offset:.6},
+      {transform:'translate('+dx+'px,'+dy+'px) scale(.05)', opacity:.2}
+    ], {duration:850, easing:'cubic-bezier(.5,0,.3,1)'}).onfinish = function(){ clone.remove(); done(); };
+  }
+  function lineHTML(l, i){
+    var p = byId(l.id), c = p.colors[l.color];
+    return '<div class="line" data-i="'+i+'">' +
+      '<a class="thumbnail" href="#/product/'+p.id+'">' + art(p, c[1]) + '</a>' +
+      '<div><h3><a href="#/product/'+p.id+'">'+p.name+'</a></h3><p class="meta">'+c[0]+(l.size !== 'One size' ? ', size '+l.size : '')+'</p>' +
+        '<div class="qty"><button data-act="dec" aria-label="Decrease quantity">−</button><output>'+l.qty+'</output><button data-act="inc" aria-label="Increase quantity">+</button></div></div>' +
+      '<div class="lprice">'+money(p.price*l.qty)+'<button class="remove" data-act="rm">Remove</button></div></div>';
+  }
+  function renderCart(){
+    var n = cart.reduce(function(a, l){ return a + l.qty; }, 0);
+    document.getElementById('drawerTitle').textContent = n ? 'Your bag (' + n + ')' : 'Your bag';
+    if (sent) {
+      dBody.innerHTML = '<div class="done"><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M100 18 C78 48 78 90 100 116 C122 90 122 48 100 18 Z"/><path d="M100 116 C70 106 54 76 61 44 C80 58 95 84 100 116"/><path d="M100 116 C130 106 146 76 139 44 C120 58 105 84 100 116"/></svg><h3>Your order is ready to send</h3><p>Paste this message into our Instagram chat and press send. We\'ll reply to confirm availability, the delivery fee and timing.</p><textarea class="order-text" id="orderText" readonly aria-label="Your order message">'+esc(lastMsg)+'</textarea><p style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:0"><button class="btn btn-line" id="copyAgain" style="color:var(--orchid);border-color:var(--orchid);background:none;cursor:pointer">Copy message</button><a class="btn btn-ice" href="'+IG_DM+'" target="_blank" rel="noopener">Open Instagram chat</a></p></div>';
+      document.getElementById('copyAgain').onclick = function(){ copyMsg(true); };
+      dFoot.innerHTML = '<button class="btn send-btn" id="clearBag" style="background:var(--plum)">Clear my bag</button>';
+      document.getElementById('clearBag').onclick = function(){ cart = []; sent = false; save('yalma-cart', cart); updateBadges(); renderCart(); };
+      return;
+    }
+    if (!cart.length) {
+      dBody.innerHTML = '<div class="drawer-empty"><svg viewBox="0 0 24 24" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg><h3>Your bag is empty</h3><p>Pieces you add will appear here.</p></div>';
+      dFoot.innerHTML = '<a class="btn send-btn" href="#/catalog" id="shopFromBag">Browse the shop</a>';
+      document.getElementById('shopFromBag').onclick = closeCart;
+      return;
+    }
+    dBody.innerHTML = cart.map(lineHTML).join('');
+    dFoot.innerHTML =
+      '<div class="totals"><span>Subtotal</span><strong>'+money(subtotal())+'</strong></div>' +
+      '<p class="small">Delivery fee is confirmed when we reply. Payment on delivery.</p>' +
+      '<div class="checkout">' +
+        '<label>Name<input id="cName" autocomplete="name" value="'+esc(customer.name)+'"></label>' +
+        '<label>Phone<input id="cPhone" type="tel" autocomplete="tel" placeholder="+961" value="'+esc(customer.phone)+'"></label>' +
+        '<label class="wide">Area and address<input id="cArea" autocomplete="street-address" value="'+esc(customer.area)+'"></label>' +
+        '<label class="wide">Notes (optional)<textarea id="cNotes" rows="1">'+esc(customer.notes)+'</textarea></label>' +
+      '</div>' +
+      '<a class="btn send-btn" id="sendOrder" href="'+IG_DM+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.2 18.6Z"/></svg>Send order on Instagram</a>';
+    ['cName','cPhone','cArea','cNotes'].forEach(function(id){
+      document.getElementById(id).addEventListener('input', function(e){
+        customer[{cName:'name',cPhone:'phone',cArea:'area',cNotes:'notes'}[id]] = e.target.value; save('yalma-customer', customer); e.target.classList.remove('bad');
+      });
+    });
+    document.getElementById('sendOrder').addEventListener('click', sendOrder);
+  }
+  function esc(v){ return String(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+  function sendOrder(e){
+    var missing = [['cName','name'],['cPhone','phone'],['cArea','area']].filter(function(f){ return !customer[f[1]].trim(); });
+    if (missing.length) {
+      e.preventDefault();
+      missing.forEach(function(f){ var el = document.getElementById(f[0]); el.classList.add('bad'); });
+      document.getElementById(missing[0][0]).focus();
+      toast('Add your name, phone and area so we can deliver your order.');
+      return;
+    }
+    var lines = cart.map(function(l, i){
+      var p = byId(l.id); return (i+1) + '. ' + p.name + ', ' + p.colors[l.color][0] + (l.size !== 'One size' ? ', size ' + l.size : '') + ' x' + l.qty + ' (' + money(p.price*l.qty) + ')';
+    });
+    var msg = "Hi Yalma! I'd like to order:\n" + lines.join('\n') + '\n\nSubtotal: ' + money(subtotal()) +
+      '\nName: ' + customer.name + '\nPhone: ' + customer.phone + '\nAddress: ' + customer.area + (customer.notes.trim() ? '\nNotes: ' + customer.notes : '');
+    lastMsg = msg; sent = true; renderCart();
+    toastEl.classList.remove('show');
+    copyMsg(false);
+    dBody.scrollTop = 0;
+  }
+  dBody.addEventListener('click', function(e){
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var row = b.closest('.line'), i = +row.getAttribute('data-i'), act = b.getAttribute('data-act');
+    if (act === 'inc') cart[i].qty = Math.min(9, cart[i].qty + 1);
+    if (act === 'dec') { if (cart[i].qty > 1) cart[i].qty--; else act = 'rm'; }
+    function commit(){ save('yalma-cart', cart); updateBadges(); renderCart(); }
+    if (act === 'rm') {
+      cart.splice(i, 1);
+      if (!reduce && row.animate) { row.style.overflow = 'hidden'; row.animate([{opacity:1, transform:'none', height:row.offsetHeight+'px'},{opacity:0, transform:'translateX(40px)', height:'0px', paddingTop:'0px', paddingBottom:'0px'}], {duration:350, easing:'ease-in'}).onfinish = commit; return; }
+    }
+    commit();
+  });
+  function openCart(){
+    lastFocus = document.activeElement;
+    toastEl.classList.remove('show');
+    renderCart();
+    document.body.classList.add('cart-open'); drawer.setAttribute('aria-hidden', 'false');
+    setTimeout(function(){ document.getElementById('closeCart').focus(); }, 50);
+    if (!reduce && dBody.animate) Array.prototype.forEach.call(dBody.querySelectorAll('.line'), function(l, i){
+      l.animate([{opacity:0, transform:'translateX(30px)'},{opacity:1, transform:'none'}], {duration:450, delay:150 + i*70, easing:EASE, fill:'backwards'});
+    });
+  }
+  function closeCart(){
+    document.body.classList.remove('cart-open'); drawer.setAttribute('aria-hidden', 'true');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('closeCart').addEventListener('click', closeCart);
+  document.getElementById('scrim').addEventListener('click', closeCart);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && document.body.classList.contains('cart-open')) closeCart(); });
+
+  /* hearts + quick add anywhere on the page */
+  document.addEventListener('click', function(e){
+    var h = e.target.closest('[data-heart]');
+    if (h) { e.preventDefault(); toggleWish(h.getAttribute('data-heart'), h); return; }
+    var q = e.target.closest('[data-quickadd]');
+    if (q) {
+      var p = byId(q.getAttribute('data-quickadd'));
+      if (p.sizes.length === 1) addToCart(p.id, 0, p.sizes[0], 1, q.closest('.pcard').querySelector('.pimg svg'));
+      else location.hash = '#/product/' + p.id;
+    }
+  });
+  updateBadges();
+  renderCart();
+
+  /* ---------- router ---------- */
+  function route(){
+    if (document.body.classList.contains('cart-open')) closeCart();
+    var parts = location.hash.replace(/^#\/?/, '').split('/');
+    if (parts[0] === 'catalog') showCatalog(parts[1] || 'all');
+    else if (parts[0] === 'product') showProduct(parts[1]);
+    else if (parts[0] === 'wishlist') showWishlist();
+    else showHome(['about','collections','order','contact'].indexOf(parts[0]) > -1 ? parts[0] : null);
+  }
+  window.addEventListener('hashchange', route);
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#/"]');
+    if (a && a.getAttribute('href') === location.hash) { e.preventDefault(); route(); }
+  });
+  route();
 })();
+
 </script>
 </body>
 </html>
