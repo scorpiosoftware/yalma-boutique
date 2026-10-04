@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yalma Boutique — Lebanon</title>
+<meta name="description" content="Yalma Boutique: curated women's fashion in Lebanon. Browse new arrivals on Instagram and order by message.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orchid:#AF6B9A; --orchid-deep:#8E4F7C; --plum:#3E1F36; --ice:#A8D4E6; --ice-soft:#D7ECF4;
+  --petal:#FBF0F6; --pearl:#FFFFFF;
+  --bg:var(--petal); --surface:var(--pearl); --text:var(--plum); --muted:#7A5A70; --line:rgba(62,31,54,.14);
+  --serif:"Bodoni Moda","Didot","Bodoni 72","Times New Roman",serif;
+  --sans:"Jost","Futura","Century Gothic","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#24121F;--surface:#2F1829;--text:#F6E6F0;--muted:#C9A9BE;--line:rgba(246,230,240,.14);}
+}
+:root[data-theme="dark"]{--bg:#24121F;--surface:#2F1829;--text:#F6E6F0;--muted:#C9A9BE;--line:rgba(246,230,240,.14);}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ice);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .4s, box-shadow .4s}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav.scrolled{background:rgba(175,107,154,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.15)}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#fff}
+.brand img{width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+.brand span{font-family:var(--serif);font-size:1.15rem;letter-spacing:.08em}
+.links{display:flex;gap:2rem;align-items:center}
+.links a{color:#fff;text-decoration:none;font-size:.95rem;font-weight:400;opacity:.9;position:relative}
+.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--ice);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.links a:not(.btn):hover::after{transform:scaleX(1)}
+.links a.btn{color:var(--plum);opacity:1}
+.menu-btn{display:none;background:none;border:0;color:#fff;padding:.5rem;cursor:pointer}
+.menu-btn span{display:block;width:24px;height:1.5px;background:currentColor;margin:6px 0;transition:transform .3s,opacity .3s}
+.menu-open .menu-btn span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.menu-open .menu-btn span:nth-child(2){opacity:0}
+.menu-open .menu-btn span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.5rem;border-radius:999px;font-family:var(--sans);font-weight:500;font-size:.95rem;text-decoration:none;transition:background .3s,color .3s,transform .3s}
+.btn-ice{background:var(--ice);color:var(--plum)}
+.btn-ice:hover{background:#fff;transform:translateY(-2px)}
+.btn-line{border:1px solid rgba(255,255,255,.6);color:#fff}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;background:radial-gradient(120% 90% at 50% 40%, #B97AA6 0%, var(--orchid) 45%, var(--orchid-deep) 100%);color:#fff;display:grid;place-items:center;text-align:center;overflow:hidden;padding:110px 0 80px}
+#petals{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-inner{position:relative;z-index:2}
+.lotus{width:clamp(110px,16vw,170px);margin:0 auto 1.2rem}
+.lotus path{fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.wordmark{font-family:var(--serif);font-weight:400;font-size:clamp(4.2rem,15vw,10.5rem);line-height:.9;letter-spacing:.06em;color:var(--ice);margin:0;display:flex;justify-content:center;text-shadow:0 2px 30px rgba(62,31,54,.18)}
+.wordmark span{display:inline-block}
+.sub{font-family:var(--sans);font-weight:400;letter-spacing:.55em;font-size:clamp(.85rem,1.9vw,1.15rem);margin:1rem 0 0;padding-left:.55em}
+.tagline{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.5rem);max-width:30ch;margin:2.2rem auto 2.2rem;opacity:.95}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.scroll-cue{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:2;width:1px;height:48px;background:rgba(255,255,255,.35);overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:#fff;animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{to{top:100%}}
+
+/* ---------- Sections ---------- */
+section{padding:clamp(4.5rem,10vw,8rem) 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.08;margin:0 0 1.2rem;letter-spacing:-.005em}
+.lead{font-size:1.15rem;color:var(--muted);max-width:56ch;margin:0}
+
+.about .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.about p{max-width:52ch;margin:0 0 1.1rem}
+.about-art{position:relative;aspect-ratio:4/5;border-radius:220px 220px 24px 24px;background:linear-gradient(170deg,var(--orchid) 0%,var(--orchid-deep) 100%);display:grid;place-items:center;overflow:hidden}
+.about-art .ring{position:absolute;border:1px solid rgba(168,212,230,.45);border-radius:50%}
+.about-art img{width:58%;border-radius:50%;box-shadow:0 20px 50px rgba(62,31,54,.35);position:relative;z-index:1}
+.signature{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--orchid);margin-top:1.6rem}
+
+/* collections */
+.collections{background:var(--surface)}
+.col-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.tile{position:relative;border-radius:18px;overflow:hidden;background:var(--orchid);color:#fff;aspect-ratio:3/4;padding:1.4rem;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;cursor:default}
+.tile:nth-child(2){background:#9B5C88}
+.tile:nth-child(3){background:#C08AB0}
+.tile:nth-child(4){background:var(--orchid-deep)}
+.tile svg{position:absolute;top:16%;left:50%;width:52%;transform:translateX(-50%);transition:transform .6s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.tile svg *{fill:none;stroke:var(--ice);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tile:hover svg{transform:translateX(-50%) translateY(-8px) scale(1.04)}
+.tile h3{font-family:var(--serif);font-weight:400;font-size:1.55rem;margin:0 0 .25rem}
+.tile p{margin:0;font-size:.95rem;opacity:.9;line-height:1.45}
+
+/* how to order: a real sequence */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;top:22px;left:22px;right:22px;height:1px;background:var(--line)}
+.steps .progress{position:absolute;top:22px;left:22px;height:1px;background:var(--orchid);width:0;transition:width 1.6s cubic-bezier(.6,0,.2,1)}
+.step{position:relative}
+.step .dot{width:44px;height:44px;border-radius:50%;background:var(--bg);border:1px solid var(--orchid);display:grid;place-items:center;font-family:var(--serif);font-size:1.15rem;color:var(--orchid);margin-bottom:1.2rem;transition:background .4s,color .4s}
+.step.on .dot{background:var(--orchid);color:#fff}
+.step h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin:0 0 .4rem}
+.step p{margin:0;color:var(--muted);font-size:1rem}
+
+/* promise strip */
+.promise{background:var(--ice-soft);color:var(--plum);padding:clamp(3.5rem,7vw,5.5rem) 0}
+.promise blockquote{margin:0 auto;max-width:28ch;text-align:center;font-family:var(--serif);font-size:clamp(1.7rem,3.8vw,2.7rem);line-height:1.25}
+.promise svg{width:56px;margin:0 auto 1.4rem}
+.promise svg path{fill:none;stroke:var(--orchid);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* contact */
+.contact{background:linear-gradient(160deg,var(--orchid) 0%,var(--orchid-deep) 100%);color:#fff;text-align:center}
+.contact h2{color:#fff}
+.contact .lead{color:rgba(255,255,255,.85);margin:0 auto 2.4rem}
+.handle{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.6rem);color:var(--ice);text-decoration:none;display:inline-block;margin-bottom:2.2rem;border-bottom:1px solid rgba(168,212,230,.4);padding-bottom:.3rem;transition:border-color .3s}
+.handle:hover{border-color:var(--ice)}
+.info{display:flex;justify-content:center;gap:clamp(1.5rem,5vw,4rem);flex-wrap:wrap;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.2)}
+.info div{min-width:150px}
+.info strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--ice);margin-bottom:.2rem}
+.info span{font-size:.98rem;opacity:.9}
+
+footer{background:var(--plum);color:rgba(255,255,255,.75);padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+footer .brand img{width:36px;height:36px}
+
+/* reveal: used only on section headings */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .about .wrap{grid-template-columns:1fr}
+  .about-art{max-width:380px;width:100%;margin-inline:auto;order:-1}
+  .steps{grid-template-columns:1fr 1fr;row-gap:2.5rem}
+  .steps::before,.steps .progress{display:none}
+}
+@media (max-width:720px){
+  .menu-btn{display:block}
+  .links{position:fixed;inset:0;background:var(--orchid-deep);flex-direction:column;justify-content:center;gap:2rem;font-size:1.3rem;opacity:0;pointer-events:none;transition:opacity .35s;padding-top:env(safe-area-inset-top,0px)}
+  .links a{font-size:1.4rem}
+  .menu-open .links{opacity:1;pointer-events:auto}
+  .menu-btn{position:relative;z-index:2}
+}
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr 1fr;gap:.8rem}
+  .tile{padding:1rem}
+  .tile h3{font-size:1.25rem}
+  .tile p{display:none}
+  .steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Yalma Boutique home">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGE4MzAxMDAwMDgxMDIwMDAwNTcwMzAwMDA0NTA0MDAwMDU5MDQwMDAwMmMwNTAwMDAyMzA3MDAwMDdjMDcwMDAwODAwODAwMDBhYjA4MDAwMDM3MGIwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAlgCWAwEiAAIRAQMRAf/EAE4AAQEAAwEAAAAAAAAAAAAAAAADAQQFAhAAAQMBBAcHAgYCAwAAAAAAAQARITECQVFxAxAgYYGh8AQSQJGxwdEw4RMiQlBg8SMyUmJy/9oADAMBAAIAAwAAAAGg2ewAAAAAAAAnSZQAAAux42LesT5bf0M0BkABOkygAAGzrGOv6l58xpyNnXzUM+gAE6TKHUzLlnvFPDY958ah0jms+cUy6WjmUzos8428etQPSdJlLwxnx1ud1+M1vHX5mHuvSxlrcXOM46V+jy+pnQ5Ha5fRZ43c5e3nPP8ANJ+dxOk2aA7HH6OhnUpPYir1/Gt6zoc3172sdCHi0njo+tK+dW3J3NbFvetbK8Z0nitAMZG5GGXm1NQzseYi1tQxteNcesYy9AJ0mUAAAAAAAAAnSZQAAAAAAAACdJlExRMUTFExRMUTFExRMUTFJh//2gAIAQEAAQUC/brNl0WteBs2XVmw6AddwE/X0cpnHf7x/wBfA2e0EKxphYVq33vG2NHZthCtvuqxo+8FodGLevRWLNtWrPdK0OjFrVZ0b2djR2+6e0WFTVoLXdtaSz3T2XXZLLThwtBqP+OwQ2zoPzAoJ2PaA67Lru0BdEd1dnpo7LntFqTs9l1CAVo/zaPsusUB7p7Quz07OFXa0OkFjVbIYKzb7g0OkFhMFYNmygR3aq3bcaHSCytHbYUVgsbTbVhmssrTIs1hWahntWYDNo2c/wA3/9oACAEDAAE/Afqko2uvnNAv9ArunDJWRs6TSjRt3r4e7iiWBOC/EAAJh2rvotLpRow5pqsaYWjasitmoWk0g0Yc9OrVsWWeHIHE69JYFsGyaFdmtEg2LVdGWJxH6V2jR/iWbQ3OM7ut602k/E0AtY9183nVp/8AGRpRce7b/wDJ+Cu2TZf/ALWW81pv8mksWLrP57Xshr0IIt6YkFj3WgywVg/qYh6j0hW9Ha7mkAsljpHshrr+Ct6RhAJN35Sv9u+4LFwYKt2LX4NiyxJBENcD8LQ2SLWlJE2jEfpFEC1oicXu3zsNWUyaqZN+xf/aAAgBAgABPwH6z/SZDwI2B+7f/9oACAEBAAY/Av2+Azcxjnj4EyzNc9V3QRNcWyT2Q3cxw3+6/wBq7ifjwBGI5iVH6u4PIfIQP/EtmLUPnih/0snm7evgaAr8tjzL+Oh+9rhWjhql9cuE2GovqtHDZdd4UPrrZEI633oWxx9tVrq7Vn0do2TrdC1wR18UbBR8la6uQTYIeWydWeojD2R18VkrJxCtdXI2uoWaI6jZnUGu1G8lSqrGCiL3fUBgpvVqzcb9QOCim0Xr9lwjNcJzXAed6L4FB6Opo6feaLzf2U7/AE/nH//aAAgBAQABPyH9uetQVJwAqer4QCMy7X4T5DwIwIscwfCOLo5ykMbwBYVh3LK/6Uug4iMPgwMIDwwPgAAPvPgHI7yHuETFmmAI/lyEGU8JA5g3qcCaT7g2fJ3gX2uLl3DnGCwOJCdSBziMbCB7o+4Hdhiby8k5+NK4guJFfK+7ULgKuWTBZ53k/ZbgLjfjy1OUBGBHwi11NV/B2qPhEIVSbU6nMMNwco7llTbfjssdy/L7KQb53fdVCD3mB7/GqQ0InO/kVucPK7kqutx1s2XD6LLgPc9kA8Yo3GFi2WqTOJT68kJ4Rsnd7ojyRPldkhncJPBBpeBf5TYV4dwpy9FV1uOu9k9EMaAiOtxRWDVz8lyp9aa11TwTm6txMlSBcXD7bNXW46qhnc3ASfZA2Rpkt6wjOQ5KrrcdQDwjYjcwHJkR7FyvQv0jfYrlSogCXegOiSb3lzKDFjB3xNXJ9l6lOAuRAesYt7IkL4MXF7u6IEMYwKGCDyIhr09SnAXI/wBAp+JJJgRAcMnIJcAREBmUXmN7vO+E1dBriUDIdVQYhkEwYSzKHKqigud1B5re4dTzO4QxG0FOwdN6EiXxSpg91MGwQpiZDIGnPQ12BUD4gQmmNA+DPKi0VsnUFgdg1BobHfmELFHB5XuQEMGarFzc2VR/m/8A/9oADAMBAAIAAwAAABAIIIIIIIIIIIIIfkAIIIIIIJTRIIIIIUIEQ4gEoIISPcupNdiIIKZlTkHHtkIJIkzxE2oIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIL/2gAIAQMAAT8Q+qxJ+aq8enADobdVB/o1foA49MxI5qpW2IZF+Cbrf187L8cAQgcCaOuG+iGYoBJyEovCEgDGLmA4XVvpepByAgPJpGpzgVwNxGI3hPzYOBAck0ABACKAZrAawmuFj85gyN6kCwWvnEV3CapoajgM8UNkmORcAA5hqC5xt4WvMRMhIAd6Dn24FBg6cyg5vORRuA9aHMQeesBkQiLAEBaJ4IpDnAuAggOxbwADsgiwAETyBhdhUkXQAqHGIAqXuUAD5dTC4iKEPO4J0oliJcEOBSjiiPGr3MQX6NjfCiEgQAaS6gXHgHjsb5PJXJMc1vK8kZAvS5X5Mvw/Yv/aAAgBAgABPxD6xQH6B2xtYD6mQD7ALIomQg+ev2FCBsG7V8a8dpk37L//2gAIAQEAAT8Q/biTmgS6Vx7C8heUL3ebhf0AhsA+Bc/gKnUKEN5lCHlJOJwhC4LOgIRlhBDyLUJwGPgA3lvOM8QAZo7dC1zK8WIhubUi9iLr4+AIJBBBIIIIIggiQQcQUPA08sQY4RQB7wjkBZwkuNalK+A8mTWIR3goEBh404kAgwGS1FFWKIZP0CwYCxk4saVQkMwuhfIAI4ow53ADcnyz1DwcMwGZ70MiWEXAS582HpqAMQNAgpW9mFEOQXDUELF1nAGSoDgwRAmDC4Evzj0RJp3AwP6QRz2SZQ971IHAHS84DDijcxmRe9nHVlgWN3yOC3jzb6i4s2DFvwzMPceSBPHHkvQ5EcwFSb78KoDGgOQSuTNug3h0ma3CGN4uPls1dtYG8XmZp9EBAYBT770Ii/sEucDij9CfsQP7cD29gYdRjRjeWA389ERWHyNftx1RMDHlfcya7vQjIcFkQcSnnHls+m1Ew6BEigwc2IZRIHLe97jvU4qOiYxrMcwFS/IP6BY+RuLvMVCCRrJv+whNaNHM68QLqOJUnHcw8yjkpecRCAJ6N70AxZbJUnXh7hje6cAN05TmR1JYGCSIsEunBwlp2eoLSxq4oVMSAgGSShyyqpeHuGMnER67kQMWgSHxOptAD+YKGrItuRbZhjIYw3VCC5YzqkZy11AnVNaRglBCABSNW4hVyGmGGSpgHLUiEIlQJBncXjiIQukwi4I3A3FsRtF3wLyZvCHfDQyWMKIeSFBh4QxLBDQwYROFxuehcJizA8m7j0wRTCPKMiRU3Xq/Qnw6HAGQMSgPF1bkvK0g6jFh9wnOb8jLNpea2bigBvoYZgN1K3CppT1PqfAAs7Q9Wh/5P//Z" alt="Yalma Boutique logo">
+      <span>Yalma</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="links" id="links">
+      <a href="#about">Our story</a>
+      <a href="#collections">Collections</a>
+      <a href="#order">How to order</a>
+      <a class="btn btn-ice" href="#contact">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Yalma Boutique">
+    <canvas id="petals" aria-hidden="true"></canvas>
+    <div class="hero-inner wrap">
+      <svg class="lotus" id="lotus" viewBox="0 0 200 140" aria-hidden="true">
+        <path d="M100 18 C78 48 78 90 100 116 C122 90 122 48 100 18 Z"/>
+        <path d="M100 116 C70 106 54 76 61 44 C80 58 95 84 100 116"/>
+        <path d="M100 116 C130 106 146 76 139 44 C120 58 105 84 100 116"/>
+        <path d="M100 119 C66 122 36 102 24 74 C54 76 84 94 100 119"/>
+        <path d="M100 119 C134 122 164 102 176 74 C146 76 116 94 100 119"/>
+        <path d="M58 128 Q100 138 142 128"/>
+      </svg>
+      <h1 class="wordmark" id="wordmark" aria-label="Yalma"><span>Y</span><span>A</span><span>L</span><span>M</span><span>A</span></h1>
+      <p class="sub" id="sub">BOUTIQUE</p>
+      <p class="tagline" id="tagline">Pieces chosen one by one, for women who like to feel quietly beautiful.</p>
+      <div class="hero-cta" id="heroCta">
+        <a class="btn btn-ice" href="https://www.instagram.com/yalmaboutique.lb/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+          See new arrivals
+        </a>
+        <a class="btn btn-line" href="#collections">Explore collections</a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <h2 class="reveal">A small boutique with a careful eye</h2>
+        <p>Yalma is a Lebanese boutique built around one idea: every piece on our rails should be something we would happily wear ourselves. We keep collections small, restock often, and pick fabrics and cuts that flatter real bodies.</p>
+        <p>Like the lotus in our logo, we love things that are graceful without trying too hard: soft colours, easy silhouettes, and details you notice up close.</p>
+        <p class="signature">With love, the Yalma team</p>
+      </div>
+      <div class="about-art" id="aboutArt" aria-hidden="true">
+        <div class="ring" style="width:78%;aspect-ratio:1"></div>
+        <div class="ring" style="width:98%;aspect-ratio:1"></div>
+        <div class="ring" style="width:118%;aspect-ratio:1"></div>
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGE4MzAxMDAwMDgxMDIwMDAwNTcwMzAwMDA0NTA0MDAwMDU5MDQwMDAwMmMwNTAwMDAyMzA3MDAwMDdjMDcwMDAwODAwODAwMDBhYjA4MDAwMDM3MGIwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAlgCWAwEiAAIRAQMRAf/EAE4AAQEAAwEAAAAAAAAAAAAAAAADAQQFAhAAAQMBBAcHAgYCAwAAAAAAAQARITECQVFxAxAgYYGh8AQSQJGxwdEw4RMiQlBg8SMyUmJy/9oADAMBAAIAAwAAAAGg2ewAAAAAAAAnSZQAAAux42LesT5bf0M0BkABOkygAAGzrGOv6l58xpyNnXzUM+gAE6TKHUzLlnvFPDY958ah0jms+cUy6WjmUzos8428etQPSdJlLwxnx1ud1+M1vHX5mHuvSxlrcXOM46V+jy+pnQ5Ha5fRZ43c5e3nPP8ANJ+dxOk2aA7HH6OhnUpPYir1/Gt6zoc3172sdCHi0njo+tK+dW3J3NbFvetbK8Z0nitAMZG5GGXm1NQzseYi1tQxteNcesYy9AJ0mUAAAAAAAAAnSZQAAAAAAAACdJlExRMUTFExRMUTFExRMUTFJh//2gAIAQEAAQUC/brNl0WteBs2XVmw6AddwE/X0cpnHf7x/wBfA2e0EKxphYVq33vG2NHZthCtvuqxo+8FodGLevRWLNtWrPdK0OjFrVZ0b2djR2+6e0WFTVoLXdtaSz3T2XXZLLThwtBqP+OwQ2zoPzAoJ2PaA67Lru0BdEd1dnpo7LntFqTs9l1CAVo/zaPsusUB7p7Quz07OFXa0OkFjVbIYKzb7g0OkFhMFYNmygR3aq3bcaHSCytHbYUVgsbTbVhmssrTIs1hWahntWYDNo2c/wA3/9oACAEDAAE/Afqko2uvnNAv9ArunDJWRs6TSjRt3r4e7iiWBOC/EAAJh2rvotLpRow5pqsaYWjasitmoWk0g0Yc9OrVsWWeHIHE69JYFsGyaFdmtEg2LVdGWJxH6V2jR/iWbQ3OM7ut602k/E0AtY9183nVp/8AGRpRce7b/wDJ+Cu2TZf/ALWW81pv8mksWLrP57Xshr0IIt6YkFj3WgywVg/qYh6j0hW9Ha7mkAsljpHshrr+Ct6RhAJN35Sv9u+4LFwYKt2LX4NiyxJBENcD8LQ2SLWlJE2jEfpFEC1oicXu3zsNWUyaqZN+xf/aAAgBAgABPwH6z/SZDwI2B+7f/9oACAEBAAY/Av2+Azcxjnj4EyzNc9V3QRNcWyT2Q3cxw3+6/wBq7ifjwBGI5iVH6u4PIfIQP/EtmLUPnih/0snm7evgaAr8tjzL+Oh+9rhWjhql9cuE2GovqtHDZdd4UPrrZEI633oWxx9tVrq7Vn0do2TrdC1wR18UbBR8la6uQTYIeWydWeojD2R18VkrJxCtdXI2uoWaI6jZnUGu1G8lSqrGCiL3fUBgpvVqzcb9QOCim0Xr9lwjNcJzXAed6L4FB6Opo6feaLzf2U7/AE/nH//aAAgBAQABPyH9uetQVJwAqer4QCMy7X4T5DwIwIscwfCOLo5ykMbwBYVh3LK/6Uug4iMPgwMIDwwPgAAPvPgHI7yHuETFmmAI/lyEGU8JA5g3qcCaT7g2fJ3gX2uLl3DnGCwOJCdSBziMbCB7o+4Hdhiby8k5+NK4guJFfK+7ULgKuWTBZ53k/ZbgLjfjy1OUBGBHwi11NV/B2qPhEIVSbU6nMMNwco7llTbfjssdy/L7KQb53fdVCD3mB7/GqQ0InO/kVucPK7kqutx1s2XD6LLgPc9kA8Yo3GFi2WqTOJT68kJ4Rsnd7ojyRPldkhncJPBBpeBf5TYV4dwpy9FV1uOu9k9EMaAiOtxRWDVz8lyp9aa11TwTm6txMlSBcXD7bNXW46qhnc3ASfZA2Rpkt6wjOQ5KrrcdQDwjYjcwHJkR7FyvQv0jfYrlSogCXegOiSb3lzKDFjB3xNXJ9l6lOAuRAesYt7IkL4MXF7u6IEMYwKGCDyIhr09SnAXI/wBAp+JJJgRAcMnIJcAREBmUXmN7vO+E1dBriUDIdVQYhkEwYSzKHKqigud1B5re4dTzO4QxG0FOwdN6EiXxSpg91MGwQpiZDIGnPQ12BUD4gQmmNA+DPKi0VsnUFgdg1BobHfmELFHB5XuQEMGarFzc2VR/m/8A/9oADAMBAAIAAwAAABAIIIIIIIIIIIIIfkAIIIIIIJTRIIIIIUIEQ4gEoIISPcupNdiIIKZlTkHHtkIJIkzxE2oIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIL/2gAIAQMAAT8Q+qxJ+aq8enADobdVB/o1foA49MxI5qpW2IZF+Cbrf187L8cAQgcCaOuG+iGYoBJyEovCEgDGLmA4XVvpepByAgPJpGpzgVwNxGI3hPzYOBAck0ABACKAZrAawmuFj85gyN6kCwWvnEV3CapoajgM8UNkmORcAA5hqC5xt4WvMRMhIAd6Dn24FBg6cyg5vORRuA9aHMQeesBkQiLAEBaJ4IpDnAuAggOxbwADsgiwAETyBhdhUkXQAqHGIAqXuUAD5dTC4iKEPO4J0oliJcEOBSjiiPGr3MQX6NjfCiEgQAaS6gXHgHjsb5PJXJMc1vK8kZAvS5X5Mvw/Yv/aAAgBAgABPxD6xQH6B2xtYD6mQD7ALIomQg+ev2FCBsG7V8a8dpk37L//2gAIAQEAAT8Q/biTmgS6Vx7C8heUL3ebhf0AhsA+Bc/gKnUKEN5lCHlJOJwhC4LOgIRlhBDyLUJwGPgA3lvOM8QAZo7dC1zK8WIhubUi9iLr4+AIJBBBIIIIIggiQQcQUPA08sQY4RQB7wjkBZwkuNalK+A8mTWIR3goEBh404kAgwGS1FFWKIZP0CwYCxk4saVQkMwuhfIAI4ow53ADcnyz1DwcMwGZ70MiWEXAS582HpqAMQNAgpW9mFEOQXDUELF1nAGSoDgwRAmDC4Evzj0RJp3AwP6QRz2SZQ971IHAHS84DDijcxmRe9nHVlgWN3yOC3jzb6i4s2DFvwzMPceSBPHHkvQ5EcwFSb78KoDGgOQSuTNug3h0ma3CGN4uPls1dtYG8XmZp9EBAYBT770Ii/sEucDij9CfsQP7cD29gYdRjRjeWA389ERWHyNftx1RMDHlfcya7vQjIcFkQcSnnHls+m1Ew6BEigwc2IZRIHLe97jvU4qOiYxrMcwFS/IP6BY+RuLvMVCCRrJv+whNaNHM68QLqOJUnHcw8yjkpecRCAJ6N70AxZbJUnXh7hje6cAN05TmR1JYGCSIsEunBwlp2eoLSxq4oVMSAgGSShyyqpeHuGMnER67kQMWgSHxOptAD+YKGrItuRbZhjIYw3VCC5YzqkZy11AnVNaRglBCABSNW4hVyGmGGSpgHLUiEIlQJBncXjiIQukwi4I3A3FsRtF3wLyZvCHfDQyWMKIeSFBh4QxLBDQwYROFxuehcJizA8m7j0wRTCPKMiRU3Xq/Qnw6HAGQMSgPF1bkvK0g6jFh9wnOb8jLNpea2bigBvoYZgN1K3CppT1PqfAAs7Q9Wh/5P//Z" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="collections" id="collections">
+    <div class="wrap">
+      <div class="col-head">
+        <div>
+          <h2 class="reveal">What you'll find at Yalma</h2>
+          <p class="lead">New drops land on our Instagram first. Here's what we usually carry.</p>
+        </div>
+        <a class="btn btn-ice" href="https://www.instagram.com/yalmaboutique.lb/" target="_blank" rel="noopener">Shop on Instagram</a>
+      </div>
+      <div class="grid">
+        <article class="tile">
+          <svg viewBox="0 0 100 130"><path d="M38 8 L44 22 L56 22 L62 8"/><path d="M44 22 C40 40 34 52 22 122 L78 122 C66 52 60 40 56 22"/><path d="M36 58 Q50 64 64 58"/></svg>
+          <h3>Dresses</h3><p>Flowing maxis and easy midis for days out and evenings in.</p>
+        </article>
+        <article class="tile">
+          <svg viewBox="0 0 100 130"><path d="M30 14 L42 10 Q50 18 58 10 L70 14 L80 36 L70 40 L68 30 L68 62 L32 62 L32 30 L30 40 L20 36 Z"/><path d="M32 68 L68 68 L72 122 L54 122 L50 84 L46 122 L28 122 Z"/></svg>
+          <h3>Sets & co-ords</h3><p>Matching pieces you can wear together or style apart.</p>
+        </article>
+        <article class="tile">
+          <svg viewBox="0 0 100 130"><path d="M24 50 L76 50 L72 112 L28 112 Z"/><path d="M38 50 C38 26 62 26 62 50"/><path d="M24 66 L76 66"/></svg>
+          <h3>Bags</h3><p>Everyday totes and little bags that finish an outfit.</p>
+        </article>
+        <article class="tile">
+          <svg viewBox="0 0 100 130"><circle cx="34" cy="22" r="4"/><path d="M34 26 L34 44"/><path d="M34 44 C22 60 24 80 34 88 C44 80 46 60 34 44 Z"/><circle cx="66" cy="22" r="4"/><path d="M66 26 L66 44"/><path d="M66 44 C54 60 56 80 66 88 C76 80 78 60 66 44 Z"/></svg>
+          <h3>Accessories</h3><p>Jewellery, scarves and small touches with a soft shine.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <h2 class="reveal">How to order</h2>
+      <p class="lead">Ordering from Yalma takes a few messages. No accounts, no checkout forms.</p>
+      <div class="steps" id="steps">
+        <div class="progress" id="progress"></div>
+        <div class="step"><div class="dot">1</div><h3>Browse</h3><p>Scroll our Instagram posts and stories for the latest pieces.</p></div>
+        <div class="step"><div class="dot">2</div><h3>Send a message</h3><p>DM us a screenshot with your size and colour.</p></div>
+        <div class="step"><div class="dot">3</div><h3>Confirm</h3><p>We check availability and confirm the price and delivery details.</p></div>
+        <div class="step"><div class="dot">4</div><h3>Receive</h3><p>Your order is packed with care and delivered to your door.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="promise">
+    <div class="wrap">
+      <svg viewBox="0 0 200 140" aria-hidden="true"><path d="M100 18 C78 48 78 90 100 116 C122 90 122 48 100 18 Z"/><path d="M100 116 C70 106 54 76 61 44 C80 58 95 84 100 116"/><path d="M100 116 C130 106 146 76 139 44 C120 58 105 84 100 116"/></svg>
+      <blockquote class="reveal">Fewer pieces, chosen better. That's the Yalma way.</blockquote>
+    </div>
+  </div>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 class="reveal">Say hello</h2>
+      <p class="lead">Questions about sizing, stock or delivery? Message us on Instagram and we'll get back to you.</p>
+      <a class="handle" href="https://www.instagram.com/yalmaboutique.lb/" target="_blank" rel="noopener">@yalmaboutique.lb</a>
+      <div class="hero-cta">
+        <a class="btn btn-ice" href="https://ig.me/m/yalmaboutique.lb" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.2 18.6Z"/></svg>
+          Message us on Instagram
+        </a>
+      </div>
+      <div class="info">
+        <div><strong>Based in</strong><span>Lebanon</span></div>
+        <div><strong>Orders</strong><span>By Instagram message</span></div>
+        <div><strong>Delivery</strong><span>Across Lebanon</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="data:image/jpeg;base64,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" alt="Yalma Boutique logo"><span>Yalma Boutique</span></a>
+    <span>© <span id="yr"></span> Yalma Boutique. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* nav background on scroll */
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* mobile menu */
+  var btn = document.getElementById('menuBtn');
+  btn.addEventListener('click', function(){
+    var open = document.body.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('#links a').forEach(function(a){
+    a.addEventListener('click', function(){ document.body.classList.remove('menu-open'); btn.setAttribute('aria-expanded', false); });
+  });
+
+  /* hero sequence: lotus draws itself, letters rise, then the rest fades in */
+  var paths = document.querySelectorAll('#lotus path');
+  var letters = document.querySelectorAll('#wordmark span');
+  var later = [document.getElementById('sub'), document.getElementById('tagline'), document.getElementById('heroCta')];
+  if (!reduce && Element.prototype.animate) {
+    paths.forEach(function(p, i){
+      var len = p.getTotalLength();
+      p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
+      p.animate([{strokeDashoffset: len},{strokeDashoffset: 0}], {duration: 1400, delay: 150 + i*140, easing:'cubic-bezier(.6,0,.2,1)', fill:'forwards'});
+    });
+    letters.forEach(function(l, i){
+      l.style.opacity = 0;
+      l.animate([{opacity:0, transform:'translateY(40px)', filter:'blur(6px)'},{opacity:1, transform:'none', filter:'blur(0)'}],
+        {duration: 900, delay: 1100 + i*110, easing:'cubic-bezier(.2,.8,.2,1)', fill:'forwards'});
+    });
+    later.forEach(function(el, i){
+      el.style.opacity = 0;
+      el.animate([{opacity:0, transform:'translateY(14px)'},{opacity:1, transform:'none'}],
+        {duration: 800, delay: 1900 + i*180, easing:'ease-out', fill:'forwards'});
+    });
+  }
+
+  /* drifting petals in the hero */
+  var cv = document.getElementById('petals'), ctx = cv.getContext('2d'), W, H, petals = [], dpr = Math.min(window.devicePixelRatio||1, 2);
+  function size(){ W = cv.offsetWidth; H = cv.offsetHeight; cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  function make(init){
+    return { x: Math.random()*W, y: init ? Math.random()*H : -20, r: 5 + Math.random()*7,
+      vy: .25 + Math.random()*.5, vx: -.2 + Math.random()*.4, a: Math.random()*Math.PI*2, va: -.01 + Math.random()*.02,
+      sway: Math.random()*Math.PI*2, c: Math.random() < .5 ? 'rgba(168,212,230,' : 'rgba(255,255,255,', o: .25 + Math.random()*.4 };
+  }
+  function petal(p){
+    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a);
+    ctx.beginPath(); ctx.moveTo(0, -p.r); ctx.bezierCurveTo(p.r*.9, -p.r*.4, p.r*.6, p.r*.8, 0, p.r);
+    ctx.bezierCurveTo(-p.r*.6, p.r*.8, -p.r*.9, -p.r*.4, 0, -p.r);
+    ctx.fillStyle = p.c + p.o + ')'; ctx.fill(); ctx.restore();
+  }
+  var running = true;
+  function tick(){
+    if (!running) return;
+    ctx.clearRect(0,0,W,H);
+    petals.forEach(function(p, i){
+      p.sway += .015; p.y += p.vy; p.x += p.vx + Math.sin(p.sway)*.35; p.a += p.va;
+      if (p.y > H + 20) petals[i] = make(false);
+      petal(p);
+    });
+    requestAnimationFrame(tick);
+  }
+  size();
+  var count = W < 600 ? 14 : 26;
+  for (var i=0;i<count;i++) petals.push(make(true));
+  window.addEventListener('resize', size);
+  if (reduce) { petals.forEach(petal); }
+  else {
+    tick();
+    /* pause when hero is off screen */
+    new IntersectionObserver(function(e){ var vis = e[0].isIntersecting; if (vis && !running){ running = true; tick(); } else if (!vis) running = false; })
+      .observe(document.querySelector('.hero'));
+  }
+
+  /* about art: rings breathe gently with scroll */
+  var art = document.getElementById('aboutArt'), rings = art.querySelectorAll('.ring');
+  if (!reduce) window.addEventListener('scroll', function(){
+    var r = art.getBoundingClientRect(), t = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+    if (t < 0 || t > 1) return;
+    rings.forEach(function(ring, i){ ring.style.transform = 'scale(' + (1 + (t - .5) * .12 * (i+1)) + ')'; });
+  }, {passive:true});
+
+  /* heading reveals + order steps light up in sequence */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in'); io.unobserve(en.target);
+    });
+  }, {threshold:.3});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  var steps = document.getElementById('steps');
+  new IntersectionObserver(function(e, obs){
+    if (!e[0].isIntersecting) return;
+    obs.disconnect();
+    var items = steps.querySelectorAll('.step'), prog = document.getElementById('progress');
+    prog.style.width = 'calc(100% - 44px)';
+    items.forEach(function(s, i){ setTimeout(function(){ s.classList.add('on'); }, reduce ? 0 : i*420); });
+  }, {threshold:.4}).observe(steps);
+})();
+</script>
+</body>
+</html>
